@@ -1,0 +1,17 @@
+{
+  "name": "emanuelsaramago",
+  "version": "1.0.0",
+  "description": "Emanuel Saramago's website",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "emanuelsaramago",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^10.4.0"
+  }
+}
