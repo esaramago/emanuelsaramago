@@ -159,7 +159,7 @@ main {
   width: 10rem;
 }
 @media (max-width: 767px) {
-  .c-brands__logo {
+  .c-features__logo {
     width: 6rem;
   }
 }
