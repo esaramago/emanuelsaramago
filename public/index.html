@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Emanuel Saramago's website">
   <title>Emanuel Saramago | I make websites</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,21 +104,6 @@
     </main>
     <p class="c-credits c-section">Background picture by <a href="https://unsplash.com/pt-br/@anniespratt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Annie Spratt</a> at <a href="https://unsplash.com/pt-br/fotografias/BAj9EOZiDaE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
   </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load')
-        try {
-          let app = firebase.app()
-          let features = [
-            'analytics',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-  </script>
   <script src="./firebase.js"></script>
 </body>
 </html>
