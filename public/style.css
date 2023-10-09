@@ -21,7 +21,8 @@ body {
 h1,
 h2,
 body,
-p {
+p,
+ul {
   margin: 0;
 }
 button {
@@ -53,9 +54,17 @@ button {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: var(--gap);
   min-height: 100%;
   box-sizing: border-box;
+  text-align: center;
+}
+.c-section {
+  padding: var(--gap) var(--gap) var(--gap-sm);
+  margin-bottom: var(--gap);
+}
+.c-section__heading {
+  font-size: 2.6rem;
+  font-weight: 400;
 }
 
 header {
@@ -66,7 +75,15 @@ header {
 .c-social {
   display: flex;
   align-items: center;
-  gap: var(--gap)
+  gap: var(--gap);
+}
+.c-icon {
+  opacity: .8;
+  fill: #FFF;
+  transition: opacity .2s;
+}
+.c-icon:hover {
+  opacity: 1;
 }
 @media (max-width: 767px) {
   header {
@@ -75,6 +92,9 @@ header {
   .c-logo {
     width: 15rem;
   }
+  .c-social {
+    gap: var(--gap-sm);
+  }
   .c-icon {
     width: 3rem;
   }
@@ -82,13 +102,14 @@ header {
 
 main {
   flex: 1;
-  margin-bottom: var(--gap);
+  margin-bottom: var(--gap--sm);
 }
 .c-hero {
   display: flex;
   flex-direction: column;
   gap: var(--gap-lg);
   text-align: center;
+  margin-bottom: var(--gap-lg);
 }
 .c-hero__1 {
   font-size: clamp(6rem, 10rem, 10rem);
@@ -107,19 +128,43 @@ main {
   display: inline-flex;
   align-items: center;
   gap: var(--gap-xs);
-  border: .2rem solid;
+  border: .3rem solid;
   border-radius: var(--gap-xs);
-  height: 5rem;
+  height: 7rem;
   padding: var(--gap-xs) var(--gap);
   box-sizing: border-box;
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   text-decoration: none;
-  background-color: transparent;
+  background-color: #FFFFFF22;
   transition: background-color .2s;
 }
 .c-button:hover {
-  background-color: #FFFFFF22;
+  background-color: var(--color-main-500);
 }
+
+/* Brands */
+.c-brands {
+  background-color: #FFFFFF66;
+}
+.c-brands__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--gap-xs) var(--gap);
+  padding: var(--gap-sm) var(--gap);
+  list-style: none;
+}
+.c-brands__logo {
+  width: 10rem;
+}
+@media (max-width: 767px) {
+  .c-brands__logo {
+    width: 6rem;
+  }
+}
+
+
+/* Footer */
 .c-credits {
   font-size: 1.2rem;
   text-align: right;
