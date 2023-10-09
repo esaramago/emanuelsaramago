@@ -65,6 +65,7 @@ button {
 .c-section__heading {
   font-size: 2.6rem;
   font-weight: 400;
+  margin-bottom: var(--gap-sm);
 }
 
 header {
@@ -142,11 +143,11 @@ main {
   background-color: var(--color-main-500);
 }
 
-/* Brands */
-.c-brands {
+/* Features */
+.c-features {
   background-color: #FFFFFF44;
 }
-.c-brands__list {
+.c-features__list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -154,7 +155,7 @@ main {
   padding: var(--gap-sm) var(--gap);
   list-style: none;
 }
-.c-brands__logo {
+.c-features__logo {
   width: 10rem;
 }
 @media (max-width: 767px) {
