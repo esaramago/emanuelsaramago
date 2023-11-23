@@ -7,6 +7,12 @@
   --gap-lg: calc(var(--gap) * 1.5);
 }
 
+@media (max-width: 767px) {
+  :root {
+    --gap: 2.8rem;
+  }
+}
+
 html {
   font-size: 62.5%;
   height: 100%;
@@ -20,10 +26,14 @@ body {
 }
 h1,
 h2,
+h3,
 body,
 p,
 ul {
   margin: 0;
+}
+ul {
+  padding: 0;
 }
 button {
   background: none;
@@ -38,6 +48,16 @@ button {
   color: #FFF;
 }
 
+li,
+p {
+  line-height: 1.5;
+}
+h3 {
+  margin-block-end: var(--gap-sm);
+}
+ul {
+  list-style: none;
+}
 
 /* Components */
 
@@ -46,6 +66,8 @@ button {
   display: flex;
   gap: var(--gap);
 }
+
+
 .c-background {
   position: fixed;
   top: 0;
@@ -94,13 +116,10 @@ header {
 }
 @media (max-width: 767px) {
   header {
-    margin-bottom: var(--gap);
+    margin-block-end: var(--gap);
   }
   .c-logo {
     width: 15rem;
-  }
-  .c-social {
-    gap: var(--gap-sm);
   }
   .c-icon {
     width: 3rem;
@@ -153,6 +172,11 @@ main {
 .c-button:hover {
   background-color: var(--color-main-500);
 }
+@media (max-width: 767px) {
+  .c-button--sm {
+    font-size: 1.5rem;
+  }
+}
 
 /* Features */
 .c-features {
@@ -178,11 +202,18 @@ main {
 }
 
 /* Footer */
-footer {
-  padding: var(--gap-lg);
-  background-color: rgba(0, 0, 0, .8);
+.footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--gap);
+  padding: var(--gap-lg);
+  background-color: rgba(0, 0, 0, .8);
   font-size: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column-reverse;
+  }
 }
