@@ -7,8 +7,9 @@ yarn-error.log*
 firebase-debug.log*
 firebase-debug.*.log*
 
-# Firebase cache
+# Cache
 .firebase/
+.parcel-cache/
 
 # Firebase config
 
@@ -64,3 +65,6 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# distribution
+dist/
