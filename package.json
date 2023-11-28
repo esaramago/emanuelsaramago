@@ -7,7 +7,6 @@
     "build": "parcel build"
   },
   "source": "src/index.html",
-  "main": "src/main.js",
   "keywords": [
     "Portfolio, websites, webdesign"
   ],
