@@ -190,7 +190,7 @@
   </div>
 
   <script>
-    if (module.hot) {
+    if (module && module.hot) {
       module.hot.dispose(function (data) {
         // module is about to be replaced.
         // You can save data that should be accessible to the new asset in `data`
