@@ -1,0 +1,30 @@
+
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-xs);
+  border: .3rem solid;
+  border-radius: var(--gap-xs);
+  height: 7rem;
+  padding: var(--gap-xs) var(--gap);
+  box-sizing: border-box;
+  font-size: 2.6rem;
+  text-decoration: none;
+  background-color: #FFFFFF22;
+  transition: background-color .2s;
+  white-space: nowrap;
+  color: #FFF;
+}
+.c-button--sm {
+  height: 5rem;
+  font-size: 1.8rem;
+  padding: var(--gap-xs) var(--gap-sm);
+}
+.c-button:hover {
+  background-color: var(--color-main-500);
+}
+@media (max-width: 767px) {
+  .c-button--sm {
+    font-size: 1.5rem;
+  }
+}

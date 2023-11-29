@@ -1,0 +1,20 @@
+:root {
+  --color-main-100: rgb(227, 232, 230);
+  --color-main-200: rgb(177, 213, 199);
+  --color-main-500: #00787B;
+
+  --gap: 3.2rem;
+  --gap-sm: calc(var(--gap) / 2);
+  --gap-xs: calc(var(--gap) / 4);
+  --gap-lg: calc(var(--gap) * 1.5);
+  --gap-xl: calc(var(--gap) * 3);
+
+  --font-size-md: 1.6rem;
+  --font-size-sm: 1.3rem;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --gap: 2.8rem;
+  }
+}

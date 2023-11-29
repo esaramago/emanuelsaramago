@@ -1,0 +1,18 @@
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  padding: var(--gap-lg);
+  background-color: rgba(0, 0, 0, .7);
+  font-size: 1.5rem;
+  color: #FFF;
+  fill: #FFF;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column-reverse;
+  }
+}
