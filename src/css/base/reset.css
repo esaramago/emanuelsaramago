@@ -34,3 +34,7 @@ a,
 svg {
   color: inherit;
 }
+
+img {
+  max-width: 100%;
+}
