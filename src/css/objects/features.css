@@ -1,0 +1,17 @@
+.c-features {
+}
+.c-features__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap) var(--gap-lg);
+  padding: 0 var(--gap);
+  list-style: none;
+}
+.c-features__logo {
+  width: 10rem;
+}
+@media (max-width: 767px) {
+  .c-features__logo {
+    width: 8rem;
+  }
+}

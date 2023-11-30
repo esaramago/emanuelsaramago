@@ -1,0 +1,4 @@
+.c-grid {
+  display: flex;
+  gap: var(--gap);
+}
