@@ -87,51 +87,21 @@
         <div class="c-section">
           <h2 class="c-section__heading">How I can help you</h2>
           <div class="c-cards">
-            <div class="c-card">
-              <div class="c-card__content">
-                <div>
-                  <span class="c-card__tag">Design</span>
-                  <h3 class="c-card__heading">UI Design</h3>
-                </div>
-                <p>I can make the design of your website.</p>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__content">
-                <div>
-                  <span class="c-card__tag">Design</span>
-                  <h3 class="c-card__heading">Print Design</h3>
-                </div>
-                <p>I can make your personal cards, restaurant menus, etc.</p>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__content">
-                <div>
-                  <span class="c-card__tag">Development</span>
-                  <h3 class="c-card__heading">Institutional websites</h3>
-                </div>
-                <p>I can bring your companie's website to life.</p>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__content">
-                <div>
-                  <span class="c-card__tag">Development</span>
-                  <h3 class="c-card__heading">Blogs</h3>
-                </div>
-                <p>I can make your words go online.</p>
-              </div>
-            </div>
-            <div class="c-card">
-              <div class="c-card__content">
-                <div>
-                  <span class="c-card__tag">Development</span>
-                  <h3 class="c-card__heading">E-commerce</h3>
-                </div>
-                <p>I can make your online shop.</p>
-              </div>
-            </div>
+            <es-card tag="Design" title="UI Design">
+              <p>I can make the design of your website.</p>
+            </es-card>
+            <es-card tag="Design" title="Print Design">
+              <p>I can make your personal cards, restaurant menus, etc</p>
+            </es-card>
+            <es-card tag="Development" title="Institutional websites">
+              <p>I can bring your company's website to life.</p>
+            </es-card>
+            <es-card tag="Development" title="Blogs">
+              <p>I can make your words go online.</p>
+            </es-card>
+            <es-card tag="Development" title="E-commerce">
+              <p>I can make you sell online.</p>
+            </es-card>
           </div>
 
           <a href="mailto:emanuelsaramago@gmail.com?subject=Hi!&body=Hi, I'm contacting to...">
@@ -144,7 +114,15 @@
         <div class="c-section c-features">
           <h2 class="c-section__heading">Some of my work</h2>
           <ul class="c-cards c-cards--wide">
-            <li class="c-card">
+            <es-card
+              tag="Design & Development"
+              title="SOS Trata Dores"
+              image-path="work/sostratadores.jpg"
+              is-image-scrollable="true"
+            >
+              <p>A home physiotherapy website made with Wordpress.<br>I made the logo, the UI and the development.</p>
+            </es-card>
+            <!-- <li class="c-card">
               <div class="c-card__img is-scrollable">
                 <img src="img/work/sostratadores.jpg" alt="SOS Trata Dores" loading="lazy">
               </div>
@@ -153,7 +131,7 @@
                   <span class="c-card__tag">Design & Development</span>
                   <h3 class="c-card__heading">SOS Trata Dores</h3>
                 </div>
-                <p>A home physiotherapy website made with Wordpress.<br>I made the logo, the UI and the development</p>
+                <p></p>
               </div>
             </li>
             <li class="c-card">
@@ -210,7 +188,7 @@
                 </div>
               </div>
             </li>
-            <li class="c-card ">
+            <li class="c-card">
               <div class="c-card__img is-scrollable">
                 <img src="img/work/geostar.png" alt="Geostar" loading="lazy">
               </div>
@@ -221,7 +199,7 @@
                 </div>
                 <p>A portuguese travelling agency website.</p>
               </div>
-            </div>
+            </li> -->
           </div>
 
           <a href="mailto:emanuelsaramago@gmail.com?subject=Hi!&body=Hi, I'm contacting to...">
