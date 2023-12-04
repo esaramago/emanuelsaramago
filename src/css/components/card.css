@@ -12,7 +12,7 @@
   flex-direction: row;
   background-color: #FAFAFA;
   border-radius: 2rem;
-  box-shadow: 0 .3rem .5rem .1rem rgba(0,0,0,.05);
+  box-shadow: 0 .2rem .2rem .1rem rgba(0,0,0,.02);
   padding: var(--gap-lg);
   gap: var(--gap-lg);
 }

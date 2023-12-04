@@ -1,5 +1,3 @@
-.c-features {
-}
 .c-features__list {
   display: flex;
   flex-wrap: wrap;
@@ -11,6 +9,9 @@
   width: 10rem;
 }
 @media (max-width: 767px) {
+  .c-features__list {
+    justify-content: center;
+  }
   .c-features__logo {
     width: 8rem;
   }
