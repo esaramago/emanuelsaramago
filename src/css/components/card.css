@@ -24,10 +24,12 @@
 }
 .c-card__img {
   flex: 2;
-  overflow: auto;
   aspect-ratio: 16/9;
   padding: var(--gap-xs);
   border: .5rem solid var(--color-main-200);
+}
+.c-card__img.is-scrollable {
+  overflow: auto;
 }
 .c-card > p {
   flex-grow: 1;
