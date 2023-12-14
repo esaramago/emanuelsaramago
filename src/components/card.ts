@@ -1,24 +1,19 @@
 import {LitElement, html, css} from 'lit'
+import {customElement, property} from 'lit/decorators.js'
 
+@customElement('es-card')
 export class esCard extends LitElement {
-  static properties = {
-    tag: '',
-    title: '',
-    imagePath: '',
-    isImageScrollable: false,
-  }
-  constructor() {
-    super()
 
-    this.tag = this.getAttribute('tag')
-    this.title = this.getAttribute('title')
-
-    this.imagePath = this.getAttribute('image-path')
-    this.isImageScrollable = this.getAttribute('is-image-scrollable')
-  }
+  @property() tag = ''
+  @property() title = ''
+  @property() imagepath = ''
+  @property() isimagescrollable = false
 
   static styles = css`
 
+    img {
+      max-width: 100%;
+    }
     p, h3 {
       margin: 0;
     }
@@ -51,6 +46,7 @@ export class esCard extends LitElement {
       gap: var(--gap);
     }
     .c-card__img {
+      overflow: hidden;
       flex: 2;
       aspect-ratio: 16/9;
       padding: var(--gap-xs);
@@ -87,9 +83,9 @@ export class esCard extends LitElement {
   render() {
     return html`
     <div class="c-card">
-      ${this.imagePath ? html`
-        <div class="c-card__img ${this.isImageScrollable}">
-          <img src="img/${this.imagePath}" alt="${this.title}" loading="lazy">
+      ${this.imagepath ? html`
+        <div class="c-card__img ${this.isimagescrollable ? 'is-scrollable' : ''}">
+          <img src="media/${this.imagepath}.jpg" alt="${this.title}" loading="lazy">
         </div>
       ` : ''}
       <div class="c-card__content">
@@ -97,10 +93,9 @@ export class esCard extends LitElement {
           <span class="c-card__tag">${this.tag}</span>
           <h3 class="c-card__heading">${this.title}</h3>
         </div>
-        <p>I can make the design of your website.</p>
+        <slot></slot>
       </div>
     </div>
     `
   }
 }
-customElements.define('es-card', esCard)
