@@ -74,13 +74,14 @@ export class esCard extends LitElement {
       }
     }
     @media (max-width: 767px) {
-      .c-cards--wide .c-card {
+      .c-card {
         flex-direction: column;
       }
     }
   `
 
   render() {
+    debugger
     return html`
     <div class="c-card">
       ${this.imagepath ? html`
