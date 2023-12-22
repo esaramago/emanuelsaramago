@@ -81,7 +81,6 @@ export class esCard extends LitElement {
   `
 
   render() {
-    debugger
     return html`
     <div class="c-card">
       ${this.imagepath ? html`
