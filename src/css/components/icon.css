@@ -11,3 +11,8 @@
     width: 3rem;
   }
 }
+@media (max-width: 499px) {
+  .c-icon {
+    width: 2.4rem;
+  }
+}
