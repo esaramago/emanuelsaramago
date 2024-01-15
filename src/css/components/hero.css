@@ -1,0 +1,28 @@
+.c-hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg);
+  text-align: center;
+  max-width: 85rem;
+  padding: 0 var(--gap);
+  margin: 0 auto var(--gap-xl);
+  color: #FFF;
+  fill: #FFF;
+  text-align: center;
+}
+.c-hero__1 {
+  font-size: clamp(6rem, 10rem, 10rem);
+}
+.c-hero__2 {
+  font-size: clamp(2.5rem, 4vw, 3rem);
+  font-weight: normal;
+  line-height: 1.4;
+}
+.c-hero__3 {
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: normal;
+  line-height: 1;
+}
+.c-hero > p {
+  font-size: 1.8rem;
+}
