@@ -1,0 +1,6 @@
+.o-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-lg);
+  align-items: center;
+}
