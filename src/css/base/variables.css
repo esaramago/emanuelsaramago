@@ -11,8 +11,9 @@
   --gap-lg: calc(var(--gap) * 1.5);
   --gap-xl: calc(var(--gap) * 3);
 
-  --font-size-md: 1.6rem;
   --font-size-sm: 1.3rem;
+  --font-size-md: 1.6rem;
+  --font-size-lg: 1.9rem;
 }
 
 @media (max-width: 767px) {
