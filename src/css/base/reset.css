@@ -1,0 +1,40 @@
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  font-size: 1.6rem;
+  z-index: 1;
+  height: 100%;
+}
+h1,
+h2,
+h3,
+body,
+p,
+ul {
+  margin: 0;
+}
+ul {
+  padding: 0;
+}
+button {
+  background: none;
+}
+
+li,
+p {
+  line-height: 1.5;
+}
+ul {
+  list-style: none;
+}
+a,
+svg {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
