@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap) var(--gap-lg);
+  align-items: center;
   padding: 0 var(--gap);
   list-style: none;
 }
