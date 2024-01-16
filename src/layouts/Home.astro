@@ -32,20 +32,20 @@ const t = useTranslations(lang)
       <div class="c-section">
         <h2 class="c-section__heading">{ t('services.title') }</h2>
         <div class="c-cards">
-          <Card tag="Design" title="UI Design">
-            <p>I can make the design of your website.</p>
+          <Card tag="Design" title={ t('services.ui.title') }>
+            <p>{ t('services.ui.description') }</p>
           </Card>
-          <Card tag="Design" title="Print Design">
-            <p>I can make your personal cards, restaurant menus, etc</p>
+          <Card tag="Design" title={ t('services.print.title') }>
+            <p>{ t('services.print.description') }</p>
           </Card>
-          <Card tag="Development" title="Institutional websites">
-            <p>I can bring your company's website to life.</p>
+          <Card tag="Development" title={ t('services.institutional.title') }>
+            <p>{ t('services.institutional.description') }</p>
           </Card>
-          <Card tag="Development" title="Blogs">
-            <p>I can make your words go online.</p>
+          <Card tag="Development" title={ t('services.blogs.title') }>
+            <p>{ t('services.blogs.description') }</p>
           </Card>
-          <Card tag="Development" title="E-commerce">
-            <p>I can make you sell online.</p>
+          <Card tag="Development" title={ t('services.ecommerce.title') }>
+            <p>{ t('services.ecommerce.description') }</p>
           </Card>
         </div>
 
@@ -64,7 +64,7 @@ const t = useTranslations(lang)
             title="SOS Trata Dores"
             imageSrc="work/sostratadores"
           >
-            <p>A home physiotherapy website made with Wordpress.<br>I made the logo, the UI and the development.</p>
+            <p set:html={ t('work.sostratadores.description') }></p>
             <div>
               <a href="https://sostratadores.pt">sostratadores.pt</a>
             </div>
@@ -75,14 +75,14 @@ const t = useTranslations(lang)
             imageSrc="work/alianza-ferrocarril"
             isImageScrollable={true}
           >
-            <p>A pro bono redesign of a portuguese/spanish website featuring iberian rails.</p>
+            <p set:html={ t('work.allianza.description') }></p>
           </Card>
           <Card
             tag="Design & Development"
             title="DanteStamp"
             imageSrc="work/dantestamp"
           >
-            <p>An online shop selling artwork made with reused postage stamps.<br>Made with Vue.js.</p>
+            <p set:html={ t('work.dantestamp.description') }></p>
             <div>
               <a href="https://dantestamp.com">dantestamp.com</a>
             </div>
@@ -92,7 +92,7 @@ const t = useTranslations(lang)
             title="Geotur"
             imageSrc="work/geotur"
           >
-            <p>A spanish travelling website made with Nuxt.js.</p>
+            <p set:html={ t('work.geotur.description') }></p>
             <div>
               <a href="https://geotur.es">geotur.es</a>
             </div>
@@ -102,7 +102,7 @@ const t = useTranslations(lang)
             title="Fito"
             imageSrc="work/fito"
           >
-            <p>A website with the list of locations of trees on the portuguese forest health information management system.<br>Made with Vue.js.</p>
+            <p set:html={ t('work.fito.description') }></p>
             <div>
               <a href="https://fitossanidadeflorestal.web.app/">fitossanidadeflorestal.web.app</a>
             </div>
@@ -113,7 +113,7 @@ const t = useTranslations(lang)
             imageSrc="work/geostar"
             isImageScrollable={true}
           >
-            <p>A portuguese travelling agency website.</p>
+            <p set:html={ t('work.geostar.description') }></p>
           </Card>
         </div>
 
