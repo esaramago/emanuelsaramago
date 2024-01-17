@@ -1,19 +1,14 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import Social from './Social.astro'
 
 const currentLang = getLangFromUrl(Astro.url)
 const t = useTranslations(currentLang)
 ---
 
 <footer class="footer">
-  <div>
-    <p>{ t('footer.copyright') }</p>
-  </div>
-  <div class="c-grid">
-    <div>
-      <a href="mailto:emanuelsaramago@gmail.com?subject=Hi!&body=Hi, I'm contacting to...">emanuelsaramago@gmail.com</a>
-    </div>
-  </div>
+  <p>{ t('footer.copyright') }</p>
+  <Social />
 </footer>
 
 <style scoped>
@@ -27,11 +22,13 @@ const t = useTranslations(currentLang)
   font-size: 1.5rem;
   color: #FFF;
   fill: #FFF;
+  text-align: center;
 }
 
 @media (max-width: 767px) {
   .footer {
     flex-direction: column-reverse;
+    padding: var(--gap-lg) var(--gap);
   }
 }
 </style>
