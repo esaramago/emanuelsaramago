@@ -5,12 +5,8 @@
 @import url(objects/features.css);
 @import url(objects/sections.css);
 @import url(objects/container.css);
-@import url(objects/stack.css);
 
 @import url(components/button.css);
-@import url(components/card.css);
-@import url(components/hero.css);
 @import url(components/icon.css);
-@import url(components/footer.css);
 
 @import url(utilities/utilities.css);

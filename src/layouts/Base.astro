@@ -1,6 +1,7 @@
 ---
 import '../css/main.css'
 import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
@@ -74,16 +75,7 @@ const t = useTranslations(currentLang)
 
       <slot />
 
-			<footer class="footer">
-				<div>
-					<p>{ t('footer.copyright') }</p>
-				</div>
-				<div class="c-grid">
-					<div>
-						<a href="mailto:emanuelsaramago@gmail.com?subject=Hi!&body=Hi, I'm contacting to...">emanuelsaramago@gmail.com</a>
-					</div>
-				</div>
-			</footer>
+			<Footer />
 		</div>
 	</body>
 </html>
