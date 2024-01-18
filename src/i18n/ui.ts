@@ -23,7 +23,7 @@ export const ui = {
     'services.institutional.title': 'Sites institucionais',
     'services.institutional.description': 'Dou vida ao site do seu negócio.',
     'services.blogs.title': 'Blogs',
-    'services.blogs.description': 'Faço com que as suas palavras se espalharem.',
+    'services.blogs.description': 'Faço com que as suas palavras se espalhem.',
     'services.ecommerce.title': 'E-commerce',
     'services.ecommerce.description': 'Faço com que venda online.',
     'work.title': 'Algum do meu trabalho',
