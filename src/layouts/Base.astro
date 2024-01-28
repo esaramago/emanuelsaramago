@@ -4,6 +4,7 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { AstroFont } from 'astro-font'
 
 const currentLang = getLangFromUrl(Astro.url)
 const t = useTranslations(currentLang)
@@ -54,9 +55,19 @@ const t = useTranslations(currentLang)
 		<meta property="twitter:image" content="/img/icons/meta.png" />
 
 		<!-- Font -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+		<AstroFont
+			config={[
+				{
+					src: [],
+					preload: false,
+					display: "swap",
+					name: "Montserrat",
+					fallback: "sans-serif",
+					cssVariable: "font-mont",
+					googleFontsURL: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700',
+				},
+			]}
+		/>
 
 		<meta name="generator" content={Astro.generator} />
 	</head>

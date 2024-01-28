@@ -4,7 +4,7 @@ body {
 
 body,
 button {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'var(--font-mont)', sans-serif;
   color: #222;
 }
 
