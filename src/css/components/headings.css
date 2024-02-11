@@ -1,0 +1,10 @@
+.c-h2 {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+@media (max-width: 767px) {
+  .c-h2 {
+    font-size: 3rem;
+  }
+}

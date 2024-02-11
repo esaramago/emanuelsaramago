@@ -1,5 +1,5 @@
 .c-grid {
   display: flex;
-  gap: var(--gap);
+  gap: var(--sl-spacing-medium);
   align-items: center;
 }

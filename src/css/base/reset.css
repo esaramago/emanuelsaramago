@@ -31,10 +31,16 @@ ul {
   list-style: none;
 }
 a,
+button,
 svg {
   color: inherit;
 }
 
 img {
   max-width: 100%;
+}
+
+button,
+input {
+  font-size: inherit;
 }
