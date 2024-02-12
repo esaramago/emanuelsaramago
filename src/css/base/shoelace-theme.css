@@ -188,15 +188,15 @@
   --sl-font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
 
   /* Font sizes */
-  --sl-font-size-2x-small: .65rem;
-  --sl-font-size-x-small: 1rem;
+  --sl-font-size-2x-small: .9rem;
+  --sl-font-size-x-small: 1.1rem;
   --sl-font-size-small: 1.3rem;
   --sl-font-size-medium: 1.6rem;
-  --sl-font-size-large: 1.9rem;
+  --sl-font-size-large: 2.4rem;
   --sl-font-size-x-large: 3rem;
-  --sl-font-size-2x-large: 4.5rem;
-  --sl-font-size-3x-large: 5.5rem;
-  --sl-font-size-4x-large: 10rem;
+  --sl-font-size-2x-large: 4rem;
+  --sl-font-size-3x-large: 5rem;
+  --sl-font-size-4x-large: 8rem;
 
   /* Font weights */
   --sl-font-weight-light: 300;

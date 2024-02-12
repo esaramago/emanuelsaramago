@@ -1,0 +1,84 @@
+---
+interface Props {
+  justify?: 'unset' | 'space-between'
+  align?: 'unset' | 'center' | 'start' | 'end'
+  gap?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | '2x-large'
+  columns?: string // example: '[2, 4, 200px]'
+  class?: string
+  id?: string
+}
+
+const {
+  justify = 'unset',
+  align = 'unset',
+  gap = 'medium',
+  columns = '',
+  class: className = '',
+  id = '',
+  ...rest
+} = Astro.props as Props
+
+
+
+const getGridColumns = (columns: string) => {
+
+  if (!columns) return ''
+
+  const columnsArray = columns.split(',') // array of columns
+
+  let gridColumns = ''
+  columnsArray.forEach(col => {
+    col = col.replaceAll(' ', '') // trim whitespaces
+    const isNumber = !isNaN(Number(col))
+    gridColumns += isNumber ? `${col}fr ` : `${col} `
+  })
+
+  return gridColumns
+}
+
+const gridColumns = getGridColumns(columns)
+const flex = justify === 'unset' ? '1' : 'none'
+const gapVar = `var(--sl-spacing-${gap})`
+---
+
+
+<div
+  class:list={[
+    'row',
+    columns ? 'row--has-defined-columns' : '',
+    className
+  ]}
+  {...rest}
+>
+  <slot></slot>
+</div>
+
+<style define:vars={{
+  justify,
+  align,
+  gap: gapVar,
+  flex,
+  gridColumns
+}}>
+.row {
+  display: flex;
+  gap: var(--gap);
+  align-items: var(--align);
+  justify-content: var(--justify);
+}
+
+.row--has-defined-columns {
+  display: grid;
+  grid-template-columns: var(--gridColumns);
+}
+.row:not(.row--has-defined-columns) > :global(*) {
+  flex: var(--flex);
+}
+
+@media (max-width: 768px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+}
+</style>

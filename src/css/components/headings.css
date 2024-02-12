@@ -1,10 +1,26 @@
 .c-h2 {
-  font-size: 5rem;
+  font-size: var(--sl-font-size-3x-large);
   font-weight: 700;
   line-height: 1;
 }
+.c-h3 {
+  font-size: var(--sl-font-size-x-large);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.c-h4 {
+  font-size: var(--sl-font-size-large);
+  font-weight: 600;
+}
+.c-h5 {
+  font-size: var(--sl-font-size-large);
+  font-weight: 500;
+}
+.l-section > :where(.c-h2, .c-h4) {
+  text-align: center;
+}
 @media (max-width: 767px) {
   .c-h2 {
-    font-size: 3rem;
+    font-size: var(--sl-font-size-x-large);
   }
 }

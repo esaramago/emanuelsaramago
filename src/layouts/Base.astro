@@ -3,6 +3,9 @@ import '../css/main.css'
 import Header from '../components/AppHeader.astro'
 import Footer from '../components/AppFooter.astro'
 
+//import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js'
+//setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/')
+
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
 const currentLang = getLangFromUrl(Astro.url)

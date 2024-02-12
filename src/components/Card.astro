@@ -1,7 +1,7 @@
 ---
 interface Props {
 	title: string
-	tag: string
+	tag?: string
 	imageSrc?: string
 	isImageScrollable?: boolean
 }
@@ -24,14 +24,16 @@ const src = imageSrc && `/media/${imageSrc}.jpg`
 	}
 	<div class="card__content">
 		<div>
-			<span class="card__tag">{tag}</span>
-			<h3 class="card__heading">{title}</h3>
+			{
+				tag && <span class="card__tag">{tag}</span>
+			}
+			<h3 class="c-h4">{title}</h3>
 		</div>
 		<slot />
 	</div>
 </div>
 
-<style scoped>
+<style>
 .card {
 	display: flex;
 	flex-direction: row;
@@ -59,10 +61,6 @@ const src = imageSrc && `/media/${imageSrc}.jpg`
 }
 .card > p {
 	flex-grow: 1;
-}
-.card__heading {
-	font-size: 2.6rem;
-	line-height: 1.2;
 }
 .card__tag {
 	display: inline-block;
