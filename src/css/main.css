@@ -1,11 +1,16 @@
 @import url(base/variables.css);
+@import url(base/shoelace-theme.css);
 @import url(base/reset.css);
 @import url(base/structure.css);
 
-@import url(objects/features.css);
-@import url(objects/sections.css);
-@import url(objects/container.css);
+@import url(layout/container.css);
+@import url(layout/stack.css);
+@import url(layout/row.css);
+@import url(layout/sections.css);
+@import url(layout/section.css);
 
+@import url(components/headings.css);
+@import url(components/logo.css);
 @import url(components/button.css);
 @import url(components/icon.css);
 

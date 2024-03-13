@@ -1,0 +1,10 @@
+
+.l-section {
+  max-width: 120rem;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: var(--sl-spacing-2x-large) 0;
+  gap: var(--sl-spacing-large);
+}

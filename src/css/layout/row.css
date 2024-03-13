@@ -1,0 +1,13 @@
+.l-row {
+  display: flex;
+  gap: var(--sl-spacing-medium) var(--sl-spacing-large);
+  align-items: center;
+}
+.l-row--wrap {
+  flex-wrap: wrap;
+}
+@media (max-width: 767px) {
+  .l-row {
+    justify-content: center;
+  }
+}

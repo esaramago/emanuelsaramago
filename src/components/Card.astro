@@ -38,21 +38,21 @@ const src = imageSrc && `/media/${imageSrc}.jpg`
 	background-color: #FAFAFA;
 	border-radius: 2rem;
 	box-shadow: 0 .2rem .2rem .1rem rgba(0,0,0,.02);
-	padding: var(--gap-lg);
-	gap: var(--gap-lg);
+	padding: var(--sl-spacing-large);
+	gap: var(--sl-spacing-large);
 }
 .card__content {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	gap: var(--gap);
+	gap: var(--sl-spacing-medium);
 }
 .card__img {
 	overflow: hidden;
 	flex: 2;
 	aspect-ratio: 16/9;
-	padding: var(--gap-xs);
-	border: .5rem solid var(--color-main-200);
+	padding: var(--sl-spacing-x-small);
+	border: .5rem solid var(--sl-color-primary-200);
 }
 .card__img.is-scrollable {
 	overflow: auto;
@@ -67,7 +67,7 @@ const src = imageSrc && `/media/${imageSrc}.jpg`
 .card__tag {
 	display: inline-block;
 	text-transform: uppercase;
-	font-size: var(--font-size-sm);
+	font-size: var(--font-size-small);
 }
 
 @media (max-width: 767px) {

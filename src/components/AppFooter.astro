@@ -16,8 +16,8 @@ const t = useTranslations(currentLang)
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--gap);
-  padding: var(--gap-lg);
+  gap: var(--sl-spacing-medium);
+  padding: var(--sl-spacing-large);
   background-color: rgba(0, 0, 0, .7);
   font-size: 1.5rem;
   color: #FFF;
@@ -28,7 +28,7 @@ const t = useTranslations(currentLang)
 @media (max-width: 767px) {
   .footer {
     flex-direction: column-reverse;
-    padding: var(--gap-lg) var(--gap);
+    padding: var(--sl-spacing-large) var(--sl-spacing-medium);
   }
 }
 </style>
