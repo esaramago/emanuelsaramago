@@ -8,7 +8,6 @@ const {
 ---
 
 <div class="card">
-	<!-- {JSON.stringify(Astro.props)} -->
 	{imageSrc &&
 		<div class:list={[ 'card__img', {'is-scrollable': isImageScrollable} ]}>
 			<img src={imageSrc} alt={title} loading="lazy">
