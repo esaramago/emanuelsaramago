@@ -1,30 +1,21 @@
 ---
-interface Props {
-	title: string
-	tag: string
-	imageSrc?: string
-	isImageScrollable?: boolean
-}
-
 const {
 	title,
-	tag,
+	role,
 	imageSrc,
-	isImageScrollable = false
-} = Astro.props as Props
-
-const src = imageSrc && `/media/${imageSrc}.jpg`
+	isImageScrollable
+} = Astro.props
 ---
 
 <div class="card">
 	{imageSrc &&
 		<div class:list={[ 'card__img', {'is-scrollable': isImageScrollable} ]}>
-			<img src={src} alt={title} loading="lazy">
+			<img src={imageSrc} alt={title} loading="lazy">
 		</div>
 	}
 	<div class="card__content">
 		<div>
-			<span class="card__tag">{tag}</span>
+			<span class="card__role">{role ? role.join(' & ') : ''}</span>
 			<h3 class="card__heading">{title}</h3>
 		</div>
 		<slot />
@@ -64,7 +55,7 @@ const src = imageSrc && `/media/${imageSrc}.jpg`
 	font-size: 2.6rem;
 	line-height: 1.2;
 }
-.card__tag {
+.card__role {
 	display: inline-block;
 	text-transform: uppercase;
 	font-size: var(--font-size-small);

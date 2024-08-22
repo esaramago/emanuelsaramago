@@ -2,13 +2,18 @@
 import '../css/main.css'
 import Base from '../layouts/Base.astro'
 import Card from '../components/Card.astro'
-import Social from '../components/Social.astro'
 import Hero from '../components/Hero.astro'
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import type { Project } from '@/api'
+import { getProjects } from '@/api'
+
+import getImageUrl from '@/utils/getImageUrl'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+
+const projects = await getProjects()
 
 ---
 
@@ -49,72 +54,23 @@ const t = useTranslations(lang)
       <div class="l-section">
         <h2 class="c-h2">{ t('work.title') }</h2>
         <div class="cards cards--wide">
-          <Card
-            tag="Design & Development"
-            title="Associação Vale Grande"
-            imageSrc="work/associacao-vale-grande"
-          >
-            <p set:html={ t('work.associacaovalegrande.description') }></p>
-            <div>
-              <a href="https://associacaovalegrande.pt/" target="_blank">associacaovalegrande.pt</a>
-            </div>
-          </Card>
-          <Card
-            tag="Design & Development"
-            title="SOS Trata Dores"
-            imageSrc="work/sostratadores"
-          >
-            <p set:html={ t('work.sostratadores.description') }></p>
-            <div>
-              <a href="https://sostratadores.pt" target="_blank">sostratadores.pt</a>
-            </div>
-          </Card>
-          <Card
-            tag="Design"
-            title="Alianza Ferrocarril"
-            imageSrc="work/alianza-ferrocarril"
-            isImageScrollable={true}
-          >
-            <p set:html={ t('work.allianza.description') }></p>
-          </Card>
-          <Card
-            tag="Design & Development"
-            title="DanteStamp"
-            imageSrc="work/dantestamp"
-          >
-            <p set:html={ t('work.dantestamp.description') }></p>
-            <div>
-              <a href="https://dantestamp.com" target="_blank">dantestamp.com</a>
-            </div>
-          </Card>
-          <Card
-            tag="Design & Development"
-            title="Geotur"
-            imageSrc="work/geotur"
-          >
-            <p set:html={ t('work.geotur.description') }></p>
-            <div>
-              <a href="https://geotur.es" target="_blank">geotur.es</a>
-            </div>
-          </Card>
-          <Card
-            tag="Design & Development"
-            title="Fito"
-            imageSrc="work/fito"
-          >
-            <p set:html={ t('work.fito.description') }></p>
-            <div>
-              <a href="https://fitossanidadeflorestal.web.app/" target="_blank">fitossanidadeflorestal.web.app</a>
-            </div>
-          </Card>
-          <Card
-            tag="Front End Development"
-            title="Geostar"
-            imageSrc="work/geostar"
-            isImageScrollable={true}
-          >
-            <p set:html={ t('work.geostar.description') }></p>
-          </Card>
+
+          {projects.map((project: Project) => (
+            <Card
+              role={project.role}
+              title={project.title}
+              imageSrc={getImageUrl(project.image.asset._ref)}
+            >
+              <p set:html={project.description}></p>
+              {
+                project.url ? (
+                <div>
+                  <a href={project.url} target="_blank">{project.url.replace('https://', '')}</a>
+                </div>
+                ) : ''
+              }
+            </Card>
+				  ))}
         </div>
 
         <a href="mailto:emanuelsaramago@gmail.com?subject=Hi!&body=Hi, I'm contacting to...">
@@ -179,16 +135,22 @@ const t = useTranslations(lang)
             <img class="c-logo" src="media/technologies/vue.svg" alt="Vue" title="Vue" loading="lazy">
           </li>
           <li>
+            <img class="c-logo" src="media/technologies/react.svg" alt="React" title="React" loading="lazy">
+          </li>
+          <li>
             <img class="c-logo" src="media/technologies/astro.svg" alt="Astro" title="Astro" loading="lazy">
+          </li>
+          <li>
+            <img class="c-logo" src="media/technologies/next.svg" alt="Next" title="Next" loading="lazy">
           </li>
           <li>
             <img class="c-logo" src="media/technologies/wordpress.svg" alt="Wordpress" title="Wordpress" loading="lazy">
           </li>
           <li>
-            <img class="c-logo" src="media/technologies/supabase.svg" alt="Supabase" title="Supabase" loading="lazy">
+            <img class="c-logo" src="media/technologies/sanity.svg" alt="Sanity" title="Sanity" loading="lazy">
           </li>
           <li>
-            <img class="c-logo" src="media/technologies/firebase.svg" alt="Firebase" title="Firebase" loading="lazy">
+            <img class="c-logo" src="media/technologies/xata.svg" alt="Xata" title="Xata" loading="lazy">
           </li>
           <li>
             <img class="c-logo" src="media/technologies/vercel.svg" alt="Vercel" title="Vercel" loading="lazy">
