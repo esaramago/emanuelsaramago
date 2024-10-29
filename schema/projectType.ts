@@ -34,7 +34,7 @@ export default defineType({
       type: 'image',
       validation: (Rule) => Rule.required(),
       options: {
-        accept: 'image/jpeg, image/avif'
+        accept: 'image/jpeg, image/avif, image/webp'
       }
     }),
     defineField({
