@@ -1,10 +1,11 @@
 ---
 import Social from '../components/Social.astro'
+import ButtonEmail from '../components/ButtonEmail.astro'
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
+const t: any = useTranslations(lang)
 
 ---
 
@@ -12,17 +13,12 @@ const t = useTranslations(lang)
   <div class="hero__container l-container">
     <h1 class="hero__1">Olá!</h1>
     <h2>
-      <div class="hero__2">{ t('hero.heading1') }</div>
-      <div class="hero__3">{ t('hero.heading2') }</div>
+      <div class="hero__2">{ t('hero').heading1 }</div>
+      <div class="hero__3">{ t('hero').heading2 }</div>
     </h2>
-    <p>{ t('hero.text1') }<br>{ t('hero.text2') }</p>
+    <p>{ t('hero').text1 }<br>{ t('hero').text2 }</p>
     <div>
-      <a href="mailto:emanuelsaramago@gmail.com?subject=Hi!&body=Hi, I'm contacting to..." class="c-button c-button--light">
-        <svg width="21" height="17" viewBox="0 0 21 17" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.3988 2.78271C20.3988 1.68271 19.4988 0.782715 18.3988 0.782715H2.3988C1.2988 0.782715 0.398804 1.68271 0.398804 2.78271V14.7827C0.398804 15.8827 1.2988 16.7827 2.3988 16.7827H18.3988C19.4988 16.7827 20.3988 15.8827 20.3988 14.7827V2.78271ZM18.3988 2.78271L10.3988 7.78271L2.3988 2.78271H18.3988ZM18.3988 14.7827H2.3988V4.78271L10.3988 9.78271L18.3988 4.78271V14.7827Z"/>
-        </svg>
-        { t('contactme') }
-      </a>
+      <ButtonEmail variant="light" />
     </div>
     <div class="social">
       <Social />

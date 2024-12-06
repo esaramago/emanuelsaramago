@@ -6,6 +6,9 @@
 .l-row--wrap {
   flex-wrap: wrap;
 }
+.l-row--stretch {
+  align-items: stretch;
+}
 @media (max-width: 767px) {
   .l-row {
     justify-content: center;

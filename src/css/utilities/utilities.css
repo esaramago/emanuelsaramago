@@ -1,5 +1,3 @@
-.c-grid {
-  display: flex;
-  gap: var(--sl-spacing-medium);
-  align-items: center;
+.u-nowrap {
+  white-space: nowrap;
 }
