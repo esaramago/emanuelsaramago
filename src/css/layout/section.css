@@ -5,6 +5,11 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  padding: var(--sl-spacing-2x-large) 0;
+  padding-block: var(--sl-spacing-2x-large);
   gap: var(--sl-spacing-large);
+}
+@media (max-width: 767px) {
+  .l-section {
+    padding-block: var(--sl-spacing-x-large);
+  }
 }

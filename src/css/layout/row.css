@@ -9,5 +9,6 @@
 @media (max-width: 767px) {
   .l-row {
     justify-content: center;
+    gap: var(--sl-spacing-medium);
   }
 }

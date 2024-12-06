@@ -1,10 +1,10 @@
 .l-container {
-  padding: 0 var(--sl-spacing-large);
+  padding-inline: var(--sl-spacing-large);
   margin-inline-start: auto;
   margin-inline-end: auto;
 }
 @media (max-width: 767px) {
-  .c-sections {
-    padding: 0 var(--sl-spacing-medium);
+  .l-container {
+    padding-inline: var(--sl-spacing-medium);
   }
 }
