@@ -34,6 +34,16 @@ export const ui = {
     'work.geotur.description': 'Site de uma agência de viagens espanhola feita com Nuxt.js.',
     'work.fito.description': 'Site com uma lista de localizações de árvores do Sistema de Informação de Fitossanidade Florestal.<br>Feito com Vue.js.',
     'work.geostar.description': 'Site da conhecida agência de viagens.<br>Fiquei responsável pelo código frontend',
+    'pricing.title': 'Planos à sua medida',
+    'pricing.level1.title': 'Website básico',
+    'pricing.level1.description': 'Para quem está a começar',
+    'pricing.level1.feature1': 'Para quem está a começar',
+    'pricing.level1.feature2': 'Para quem está a começar',
+    'pricing.level1.feature3': 'Para quem está a começar',
+    'pricing.level1.feature4': 'Para quem está a começar',
+
+
+
     'brands.title': 'Marcas com que trabalhei',
     'technologies.title': 'Tecnologias que uso',
     'interested': 'Interessado?',

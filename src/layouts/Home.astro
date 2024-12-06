@@ -9,6 +9,9 @@ import type { Project } from '@/api'
 import { getProjects } from '@/api'
 
 import getImageUrl from '@/utils/getImageUrl'
+import List from '@/components/List.astro'
+import ListItem from '@/components/ListItem.astro'
+import CardPricing from '@/components/CardPricing.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -21,8 +24,9 @@ const projects = await getProjects()
   <Hero />
   <main>
     <div class="l-container">
-      <div class="l-section">
+      <section class="l-section">
         <h2 class="c-h2">{ t('services.title') }</h2>
+
         <div class="cards">
           <Card tag="Design" title={ t('services.ui.title') }>
             <p>{ t('services.ui.description') }</p>
@@ -48,10 +52,10 @@ const projects = await getProjects()
           { t('contactme') }
         </a>
 
-      </div>
+      </section>
 
       <!-- Work -->
-      <div class="l-section">
+      <section class="l-section">
         <h2 class="c-h2">{ t('work.title') }</h2>
         <div class="cards cards--wide">
 
@@ -79,10 +83,30 @@ const projects = await getProjects()
           </svg>
           { t('contactme') }
         </a>
-      </div>
+      </section>
+
+      <!-- Pricing -->
+      <section class="l-section">
+        <h2 class="c-h2">{ t('pricing.title') }</h2>
+        <div class="l-row l-row--stretch">
+          <CardPricing
+            title={ t('pricing.level1.title') }
+            subTitle={ t('pricing.level1.description') }
+            price={300}
+          >
+            <List>
+              <ListItem>{ t('pricing.level1.feature1') }</ListItem>
+              <ListItem>{ t('pricing.level1.feature2') }</ListItem>
+              <ListItem>{ t('pricing.level1.feature3') }</ListItem>
+              <ListItem>{ t('pricing.level1.feature4') }</ListItem>
+            </List>
+
+          </CardPricing>
+        </div>
+      </section>
 
       <!-- Brands -->
-      <div class="l-section">
+      <section class="l-section">
         <h2 class="c-h2">{ t('brands.title') }</h2>
         <ul class="l-row l-row--wrap">
           <li>
@@ -113,10 +137,10 @@ const projects = await getProjects()
             { t('andmore') }
           </li>
         </ul>
-      </div>
+      </section>
 
       <!-- Technologies -->
-      <div class="l-section">
+      <section class="l-section">
         <h2 class="c-h2">{ t('technologies.title') }</h2>
         <ul class="l-row l-row--wrap">
           <li>
@@ -159,9 +183,9 @@ const projects = await getProjects()
             { t('andmore') }
           </li>
         </ul>
-      </div>
+      </section>
 
-      <div class="l-section">
+      <section class="l-section">
         <h2 class="c-h2">{ t('interested') }</h2>
         <div>
           <a href="mailto:emanuelsaramago@gmail.com?subject=Hi!&body=Hi, I'm contacting to..." class="c-button">
@@ -171,7 +195,7 @@ const projects = await getProjects()
             { t('contactme') }
           </a>
         </div>
-      </div>
+      </section>
     </div>
   </main>
 </Base>
@@ -182,6 +206,7 @@ const projects = await getProjects()
 	display: grid;
 	justify-content: center;
 	gap: var(--sl-spacing-medium);
+  width: 100%;
 }
 .cards--wide {
 	--min: 100%;

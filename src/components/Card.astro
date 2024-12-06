@@ -1,14 +1,25 @@
 ---
+
+interface CardProps {
+	title: string
+	subTitle?: string
+	role?: string[]
+	imageSrc?: string
+	isImageScrollable?: boolean
+}
+
 const {
 	title,
+	subTitle,
 	role,
 	imageSrc,
 	isImageScrollable
-} = Astro.props
+} = Astro.props as CardProps
 ---
 
 <div class="card">
-	{imageSrc &&
+	{
+		imageSrc &&
 		<div class:list={[ 'card__img', {'is-scrollable': isImageScrollable} ]}>
 			<img src={imageSrc} alt={title} loading="lazy">
 		</div>
@@ -17,6 +28,7 @@ const {
 		<div>
 			<span class="card__role">{role ? role.join(' & ') : ''}</span>
 			<h3 class="card__heading">{title}</h3>
+			{ subTitle && <p class="card__subtitle">{subTitle}</p> }
 		</div>
 		<slot />
 	</div>
@@ -31,6 +43,9 @@ const {
 	box-shadow: 0 .2rem .2rem .1rem rgba(0,0,0,.02);
 	padding: var(--sl-spacing-large);
 	gap: var(--sl-spacing-large);
+}
+.card__subtitle {
+	margin-top: var(--sl-spacing-x-small);
 }
 .card__content {
 	flex: 1;
