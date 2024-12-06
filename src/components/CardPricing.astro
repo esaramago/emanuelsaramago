@@ -2,9 +2,11 @@
 
 import Card from './Card.astro'
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import Price from './Price.astro'
+import ButtonEmail from './ButtonEmail.astro'
 
 const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
+const t: any = useTranslations(lang)
 
 interface Props {
 	title: string
@@ -30,11 +32,17 @@ const {
     <slot></slot>
   </div>
   <div class="card-pricing__footer">
-    <span>desde <strong class="u-font-bold">{ price } €</strong></span>
-
-    <a href="mailto:emanuelsaramago@gmail.com?subject=Hi!&body=Hi, I'm contacting to..." class="c-button c-button--sm">
-      { t('contactme') }
-    </a>
+    {
+      price ? (
+        <Price value={ price } isFrom={true} />
+      ) : (
+        <span>{t('customPrice')}</span>
+      )
+    }
+    <ButtonEmail
+      subject={`Website ${title}`}
+      size="xs"
+    />
   </div>
 </Card>
 
@@ -47,13 +55,13 @@ const {
 .card-pricing__content {
   padding-block: var(--sl-spacing-medium);
   border-block: 1px solid var(--sl-color-neutral-300);
+  flex-grow: 1;
 }
 .card-pricing__footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: var(--sl-spacing-medium);
-  font-size: var(--sl-font-size-x-large);
+  gap: var(--sl-spacing-small);
 }
 </style>

@@ -1,0 +1,36 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+interface PriceProps {
+  value: number
+  currency?: string
+  isFrom?: boolean
+}
+
+const {
+  value,
+  currency = '€',
+  isFrom = false,
+} = Astro.props as PriceProps
+---
+
+<div>
+  {
+    isFrom ? (
+      <div>{t('from')}</div>
+    ) : null
+  }
+  <strong class="value">{ value } { currency }</strong>
+</div>
+
+<style scoped>
+  .value {
+    font-size: var(--sl-font-size-x-large);
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1;
+  }
+</style>

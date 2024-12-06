@@ -8,7 +8,7 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils'
 import { Analytics } from '@vercel/analytics/react'
 
 const currentLang = getLangFromUrl(Astro.url)
-const t = useTranslations(currentLang)
+const t: any = useTranslations(currentLang)
 
 ---
 

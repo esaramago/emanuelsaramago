@@ -3,10 +3,13 @@ import '../css/main.css'
 import Base from '../layouts/Base.astro'
 import Card from '../components/Card.astro'
 import Hero from '../components/Hero.astro'
+import ButtonEmail from '../components/ButtonEmail.astro'
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 import type { Project } from '@/api'
 import { getProjects } from '@/api'
+
+import c from '../content'
 
 import getImageUrl from '@/utils/getImageUrl'
 import List from '@/components/List.astro'
@@ -14,7 +17,7 @@ import ListItem from '@/components/ListItem.astro'
 import CardPricing from '@/components/CardPricing.astro'
 
 const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
+const t: any = useTranslations(lang)
 
 const projects = await getProjects()
 
@@ -25,38 +28,25 @@ const projects = await getProjects()
   <main>
     <div class="l-container">
       <section class="l-section">
-        <h2 class="c-h2">{ t('services.title') }</h2>
+        <h2 class="c-h2">{ t('services').title }</h2>
 
         <div class="cards">
-          <Card tag="Design" title={ t('services.ui.title') }>
-            <p>{ t('services.ui.description') }</p>
-          </Card>
-          <Card tag="Design" title={ t('services.print.title') }>
-            <p>{ t('services.print.description') }</p>
-          </Card>
-          <Card tag="Development" title={ t('services.institutional.title') }>
-            <p>{ t('services.institutional.description') }</p>
-          </Card>
-          <Card tag="Development" title={ t('services.blogs.title') }>
-            <p>{ t('services.blogs.description') }</p>
-          </Card>
-          <Card tag="Development" title={ t('services.ecommerce.title') }>
-            <p>{ t('services.ecommerce.description') }</p>
-          </Card>
+          {
+            t('services').items.map((service: any) => (
+              <Card tag={service.tag} title={service.title}>
+                <p>{service.description}</p>
+              </Card>
+            ))
+          }
         </div>
 
-        <a href="mailto:emanuelsaramago@gmail.com?subject=Hi!&body=Hi, I'm contacting to...">
-          <svg width="21" height="17" viewBox="0 0 21 17" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.3988 2.78271C20.3988 1.68271 19.4988 0.782715 18.3988 0.782715H2.3988C1.2988 0.782715 0.398804 1.68271 0.398804 2.78271V14.7827C0.398804 15.8827 1.2988 16.7827 2.3988 16.7827H18.3988C19.4988 16.7827 20.3988 15.8827 20.3988 14.7827V2.78271ZM18.3988 2.78271L10.3988 7.78271L2.3988 2.78271H18.3988ZM18.3988 14.7827H2.3988V4.78271L10.3988 9.78271L18.3988 4.78271V14.7827Z" />
-          </svg>
-          { t('contactme') }
-        </a>
+        <ButtonEmail />
 
       </section>
 
       <!-- Work -->
       <section class="l-section">
-        <h2 class="c-h2">{ t('work.title') }</h2>
+        <h2 class="c-h2">{ t('work').title }</h2>
         <div class="cards cards--wide">
 
           {projects.map((project: Project) => (
@@ -77,62 +67,45 @@ const projects = await getProjects()
 				  ))}
         </div>
 
-        <a href="mailto:emanuelsaramago@gmail.com?subject=Hi!&body=Hi, I'm contacting to...">
-          <svg width="21" height="17" viewBox="0 0 21 17" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.3988 2.78271C20.3988 1.68271 19.4988 0.782715 18.3988 0.782715H2.3988C1.2988 0.782715 0.398804 1.68271 0.398804 2.78271V14.7827C0.398804 15.8827 1.2988 16.7827 2.3988 16.7827H18.3988C19.4988 16.7827 20.3988 15.8827 20.3988 14.7827V2.78271ZM18.3988 2.78271L10.3988 7.78271L2.3988 2.78271H18.3988ZM18.3988 14.7827H2.3988V4.78271L10.3988 9.78271L18.3988 4.78271V14.7827Z" />
-          </svg>
-          { t('contactme') }
-        </a>
+        <ButtonEmail />
       </section>
 
       <!-- Pricing -->
       <section class="l-section">
-        <h2 class="c-h2">{ t('pricing.title') }</h2>
-        <div class="l-row l-row--stretch">
-          <CardPricing
-            title={ t('pricing.level1.title') }
-            subTitle={ t('pricing.level1.description') }
-            price={300}
-          >
-            <List>
-              <ListItem>{ t('pricing.level1.feature1') }</ListItem>
-              <ListItem>{ t('pricing.level1.feature2') }</ListItem>
-              <ListItem>{ t('pricing.level1.feature3') }</ListItem>
-              <ListItem>{ t('pricing.level1.feature4') }</ListItem>
-            </List>
+        <h2 class="c-h2">{ t('pricing').title }</h2>
+        <div class="cards">
 
-          </CardPricing>
+          {
+            t('pricing').levels.map((level: any) => (
+              <CardPricing
+                title={level.title}
+                subTitle={level.description}
+                price={level.price}
+              >
+                <List>
+                  {
+                    level.features.map((feature: any) => (
+                      <ListItem>{feature}</ListItem>
+                    ))
+                  }
+                </List>
+              </CardPricing>
+            ))
+          }
         </div>
       </section>
 
       <!-- Brands -->
       <section class="l-section">
-        <h2 class="c-h2">{ t('brands.title') }</h2>
+        <h2 class="c-h2">{ t('title').brands }</h2>
         <ul class="l-row l-row--wrap">
-          <li>
-            <img class="c-logo" src="media/brands/continente.svg" alt="Continente" title="Continente" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/brands/publico.svg" alt="Público" title="Público" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/brands/best-bank.svg" alt="Best Bank" title="Best Bank" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/brands/tap.svg" alt="TAP Air Portugal" title="TAP Air Portugal" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/brands/loreal.svg" alt="L'Oreal" title="L'Oreal" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/brands/geostar.svg" alt="Geostar" title="Geostar" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/brands/benfica.svg" alt="SL Benfica" title="SL Benfica" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/brands/zero.svg" alt="Associação Ambientalista Zero" title="Associação Ambientalista Zero" loading="lazy">
-          </li>
+          {
+            c.brands.map((brand) => (
+              <li>
+                <img class="c-logo" src={`media/brands/${brand.logo}.svg`} alt={brand.name} title={brand.name} loading="lazy" />
+              </li>
+            ))
+          }
           <li>
             { t('andmore') }
           </li>
@@ -141,44 +114,15 @@ const projects = await getProjects()
 
       <!-- Technologies -->
       <section class="l-section">
-        <h2 class="c-h2">{ t('technologies.title') }</h2>
+        <h2 class="c-h2">{ t('technologies').title }</h2>
         <ul class="l-row l-row--wrap">
-          <li>
-            <img class="c-logo" src="media/technologies/figma.svg" alt="Figma" title="Figma" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/technologies/html.svg" alt="HTML" title="HTML" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/technologies/css.svg" alt="CSS" title="CSS" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/technologies/javascript.svg" alt="Javascript" title="Javascript" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/technologies/vue.svg" alt="Vue" title="Vue" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/technologies/react.svg" alt="React" title="React" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/technologies/astro.svg" alt="Astro" title="Astro" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/technologies/next.svg" alt="Next" title="Next" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/technologies/wordpress.svg" alt="Wordpress" title="Wordpress" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/technologies/sanity.svg" alt="Sanity" title="Sanity" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/technologies/xata.svg" alt="Xata" title="Xata" loading="lazy">
-          </li>
-          <li>
-            <img class="c-logo" src="media/technologies/vercel.svg" alt="Vercel" title="Vercel" loading="lazy">
-          </li>
+          {
+            c.technologies.map((tech) => (
+              <li>
+                <img class="c-logo" src={`media/technologies/${tech.logo}.svg`} alt={tech.name} title={tech.name} loading="lazy" />
+              </li>
+            ))
+          }
           <li>
             { t('andmore') }
           </li>
@@ -188,12 +132,7 @@ const projects = await getProjects()
       <section class="l-section">
         <h2 class="c-h2">{ t('interested') }</h2>
         <div>
-          <a href="mailto:emanuelsaramago@gmail.com?subject=Hi!&body=Hi, I'm contacting to..." class="c-button">
-            <svg width="21" height="17" viewBox="0 0 21 17" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20.3988 2.78271C20.3988 1.68271 19.4988 0.782715 18.3988 0.782715H2.3988C1.2988 0.782715 0.398804 1.68271 0.398804 2.78271V14.7827C0.398804 15.8827 1.2988 16.7827 2.3988 16.7827H18.3988C19.4988 16.7827 20.3988 15.8827 20.3988 14.7827V2.78271ZM18.3988 2.78271L10.3988 7.78271L2.3988 2.78271H18.3988ZM18.3988 14.7827H2.3988V4.78271L10.3988 9.78271L18.3988 4.78271V14.7827Z"/>
-            </svg>
-            { t('contactme') }
-          </a>
+          <ButtonEmail />
         </div>
       </section>
     </div>
