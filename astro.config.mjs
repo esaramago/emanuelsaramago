@@ -16,7 +16,7 @@ import react from '@astrojs/react'
 
 // Change this depending on your hosting provider (Vercel, Netlify etc)
 // https://docs.astro.build/en/guides/server-side-rendering/#adding-an-adapter
-import vercel from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel'
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,7 +29,7 @@ export default defineConfig({
       studioBasePath: '/admin',
       useCdn: false,
       // `false` if you want to ensure fresh data
-      apiVersion: '2024-08-21' // Set to date of setup to use the latest API version
+      apiVersion: '2025-01-16' // Set to date of setup to use the latest API version
     }),
     react() // Required for Sanity Studio
   ]
