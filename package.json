@@ -16,21 +16,21 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.2.0",
     "@astrojs/vercel": "^8.0.5",
-    "@sanity/astro": "^3.1.9",
-    "@sanity/client": "^6.24.3",
+    "@sanity/astro": "^3.1.11",
+    "@sanity/client": "^6.27.2",
     "@sanity/image-url": "^1.1.0",
-    "@sanity/vision": "^3.70.0",
-    "@sanity/visual-editing": "^2.12.2",
-    "@types/react": "^19.0.7",
+    "@sanity/vision": "^3.72.1",
+    "@sanity/visual-editing": "^2.12.11",
+    "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vercel/analytics": "^1.4.1",
     "astro": "^5.2.1",
     "astro-portabletext": "^0.11.0",
-    "groq": "^3.70.0",
+    "groq": "^3.72.1",
     "prettier-plugin-astro": "^0.14.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "sanity": "^3.70.0",
+    "sanity": "^3.72.1",
     "styled-components": "^6.1.14"
   },
   "devDependencies": {
@@ -39,7 +39,7 @@
     "eslint": "9.13.0",
     "prettier": "3.3.3",
     "rimraf": "6.0.1",
-    "typescript": "^5.5.2",
-    "vite": "^5.3.2"
+    "typescript": "^5.7.3",
+    "vite": "^5.4.14"
   }
 }
