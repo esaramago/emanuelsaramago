@@ -3,3 +3,13 @@ body {
   background-color: var(--sl-color-primary-100);
   color: var(--sl-color-neutral-900);
 }
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20rem;
+}
+@media (max-width: 767px) {
+  main {
+    gap: 16rem;
+  }
+}

@@ -53,8 +53,16 @@ const content = {
       logo: 'javascript',
     },
     {
+      name: 'Typescript',
+      logo: 'typescript',
+    },
+    {
       name: 'Vue',
       logo: 'vue',
+    },
+    {
+      name: 'Svelte',
+      logo: 'svelte',
     },
     {
       name: 'React',
@@ -79,6 +87,10 @@ const content = {
     {
       name: 'Xata',
       logo: 'xata',
+    },
+    {
+      name: 'Netlify',
+      logo: 'netlify',
     },
     {
       name: 'Vercel',

@@ -1,10 +1,19 @@
 .l-container {
-  padding-inline: var(--sl-spacing-large);
-  margin-inline-start: auto;
-  margin-inline-end: auto;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 160rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-inline: 8rem;
+  margin-inline: auto;
+  gap: var(--sl-spacing-large);
+}
+.l-container--full {
+  max-width: 100%;
 }
 @media (max-width: 767px) {
   .l-container {
-    padding-inline: var(--sl-spacing-medium);
+    padding-inline: 3rem;
   }
 }
