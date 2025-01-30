@@ -1,5 +1,3 @@
-import { custom } from "astro:schema"
-
 export const languages = {
   pt: 'Português',
   en: 'English',
