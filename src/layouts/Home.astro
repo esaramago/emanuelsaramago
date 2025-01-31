@@ -1,14 +1,12 @@
 ---
 import '../css/main.css'
-import Base from '../layouts/Base.astro'
+import Layout from '../layouts/layout.astro'
 import Card from '../components/Card.astro'
 import Hero from '../components/Hero.astro'
 import ButtonEmail from '../components/ButtonEmail.astro'
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
-import type { Project } from '@/api'
-import { getProjects } from '@/api'
-
+import { getProjects, getTechnologies, type Project } from '@/api'
 import c from '../content'
 
 import getImageUrl from '@/utils/getImageUrl'
@@ -20,10 +18,12 @@ const lang = getLangFromUrl(Astro.url)
 const t: any = useTranslations(lang)
 
 const projects = await getProjects()
+const technologies = await getTechnologies()
+const technologiesGroupedByType = groupBy(technologies, 'type')
 
 ---
 
-<Base>
+<Layout>
   <Hero />
   <main>
     <section class="l-container l-container--full">
@@ -114,6 +114,18 @@ const projects = await getProjects()
     <!-- Technologies -->
     <section class="l-container l-container--full">
       <h2 class="c-h2">{ t('technologies').title }</h2>
+
+      <ul>
+        {
+          c.technologies.map((item: any) => (
+            <li>
+              <Card>
+                <p>{item.description}</p>
+              </Card>
+            </li>
+          ))
+        }
+      </ul>
       <ul class="l-row l-row--wrap">
         {
           c.technologies.map((tech) => (
@@ -135,7 +147,7 @@ const projects = await getProjects()
       </div>
     </section>
   </main>
-</Base>
+</Layout>
 
 <style scoped>
 .cards {
