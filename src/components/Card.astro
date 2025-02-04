@@ -1,11 +1,15 @@
 ---
-
+type TemplateType = 'default' | 'custom'
+type Spacing = 'medium' | 'large'
 interface CardProps {
 	title: string
 	subTitle?: string
 	role?: string[]
 	imageSrc?: string
 	isImageScrollable?: boolean
+	template?: TemplateType
+	gap?: Spacing
+	padding?: Spacing
 }
 
 const {
@@ -13,36 +17,53 @@ const {
 	subTitle,
 	role,
 	imageSrc,
-	isImageScrollable
+	isImageScrollable,
+	template = 'custom',
+	gap = 'large',
+	padding = 'large',
 } = Astro.props as CardProps
 ---
 
-<div class="card">
+<div class={`card card--${template}`} style={{
+	'--gap': `var(--sl-spacing-${gap})`,
+	'--padding': `var(--sl-spacing-${padding})`}}
+>
 	{
-		imageSrc &&
-		<div class:list={[ 'card__img', {'is-scrollable': isImageScrollable} ]}>
-			<img src={imageSrc} alt={title} loading="lazy">
-		</div>
+		template === 'default' ? (
+			<>
+				{
+					imageSrc &&
+					<div class:list={[ 'card__img', {'is-scrollable': isImageScrollable} ]}>
+						<img src={imageSrc} alt={title} loading="lazy">
+					</div>
+				}
+				<div class="card__content">
+					<div>
+						{role && <span class="card__role">{role.join(' & ')}</span>}
+						{title && <h3 class="card__heading">{title}</h3>}
+						{subTitle && <p class="card__subtitle">{subTitle}</p>}
+					</div>
+					<slot />
+				</div>
+			</>
+		) : (
+			<slot />
+		)
 	}
-	<div class="card__content">
-		<div>
-			{role && <span class="card__role">{role.join(' & ')}</span>}
-			<h3 class="card__heading">{title}</h3>
-			{ subTitle && <p class="card__subtitle">{subTitle}</p> }
-		</div>
-		<slot />
-	</div>
 </div>
 
 <style scoped>
 .card {
+	height: 100%;
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 	background-color: #FAFAFA;
 	border-radius: 2rem;
 	box-shadow: 0 .2rem .2rem .1rem rgba(0,0,0,.02);
-	padding: var(--sl-spacing-large);
-	gap: var(--sl-spacing-large);
+	padding: var(--padding);
+	gap: var(--gap);
 }
 .card__subtitle {
 	margin-top: var(--sl-spacing-x-small);

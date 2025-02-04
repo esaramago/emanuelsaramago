@@ -3,10 +3,10 @@ import project from './project'
 import technology from './technology'
 import technologyType from './technologyType'
 
-const schemaTypes: SchemaTypeDefinition[] = [
-  project,
-  technology,
-  technologyType
-]
-
-export default schemaTypes
+export const schema: { types: SchemaTypeDefinition[] } = {
+  types: [
+    project,
+    technology,
+    technologyType
+  ],
+}
