@@ -1,4 +1,5 @@
 ---
+import CardHeading from './CardHeading.astro'
 type TemplateType = 'default' | 'custom'
 type Spacing = 'medium' | 'large'
 interface CardProps {
@@ -40,7 +41,7 @@ const {
 				<div class="card__content">
 					<div>
 						{role && <span class="card__role">{role.join(' & ')}</span>}
-						{title && <h3 class="card__heading">{title}</h3>}
+						<CardHeading>{title}</CardHeading>
 						{subTitle && <p class="card__subtitle">{subTitle}</p>}
 					</div>
 					<slot />
@@ -52,16 +53,15 @@ const {
 	}
 </div>
 
-<style scoped>
+<style>
 .card {
 	height: 100%;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: row;
-	align-items: center;
 	background-color: #FAFAFA;
 	border-radius: 2rem;
-	box-shadow: 0 .2rem .2rem .1rem rgba(0,0,0,.02);
+	box-shadow: 0 .2rem .2rem .2rem rgba(0,0,0,.03);
 	padding: var(--padding);
 	gap: var(--gap);
 }
@@ -86,10 +86,6 @@ const {
 }
 .card > p {
 	flex-grow: 1;
-}
-.card__heading {
-	font-size: 2.6rem;
-	line-height: 1.2;
 }
 .card__role {
 	display: inline-block;
