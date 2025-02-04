@@ -38,7 +38,7 @@ technologyTypes.forEach((type) => {
           </div>
           <ul class="l-row l-row--small l-row--wrap">
             {
-              type.technologies.map((tech) => (
+              type.technologies.map((tech: any) => (
                 <li>
                   <a href={tech.website} target="_blank">
                     <img class="technology__logo" src={getImageUrl(tech.logo)} alt={tech.name} title={tech.name} loading="lazy" />

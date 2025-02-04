@@ -1,7 +1,6 @@
 import { sanityClient } from 'sanity:client'
 import type { Slug } from '@sanity/types'
 import groq from 'groq'
-import type * as Schema from '../../types/sanity'
 
 interface CustomImageAssetRef {
   _ref: string
@@ -34,12 +33,12 @@ export async function getProject(slug: Slug): Promise<Project> {
 }
 
 
-export async function getTechnologies(): Promise<Schema.Technology[]> {
+export async function getTechnologies(): Promise<any[]> {
   return await sanityClient.fetch(
     groq`*[_type == 'technology'] | order(name desc)`
   )
 }
-export async function getTechnologyTypes(): Promise<Schema.TechnologyType[]> {
+export async function getTechnologyTypes(): Promise<any[]> {
   return await sanityClient.fetch(
     groq`*[_type == 'technologyType'] | order(order asc)`
   )
