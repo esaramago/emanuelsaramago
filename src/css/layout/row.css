@@ -3,6 +3,9 @@
   gap: var(--sl-spacing-medium) var(--sl-spacing-large);
   align-items: center;
 }
+.l-row--small {
+  gap: var(--sl-spacing-small) var(--sl-spacing-medium);
+}
 .l-row--wrap {
   flex-wrap: wrap;
 }

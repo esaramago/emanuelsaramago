@@ -8,6 +8,7 @@ export default (imageRef: string) => {
 	let image = imageRef.replace('image-', '')
 	image = image.replace('-png', '.png')
 	image = image.replace('-jpg', '.jpg')
+	image = image.replace('-svg', '.svg')
 
 	return `https://cdn.sanity.io/images/${projectId}/${dataset}/${image}`
 }

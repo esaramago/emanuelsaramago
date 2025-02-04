@@ -27,8 +27,7 @@ export default defineConfig({
       dataset,
       studioBasePath: '/admin',
       useCdn: false,
-      // `false` if you want to ensure fresh data
-      apiVersion: '2025-01-16' // Set to date of setup to use the latest API version
+      apiVersion: '2025-02-04' // Set to date of setup to use the latest API version
     }),
     react() // Required for Sanity Studio
   ]

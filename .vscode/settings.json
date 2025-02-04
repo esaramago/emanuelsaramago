@@ -1,0 +1,9 @@
+{
+  "search.exclude": {
+    "node_modules": true,
+    "dist": true,
+    ".vercel": true,
+    ".astro": true,
+    "package-lock.json": true,
+  }
+}

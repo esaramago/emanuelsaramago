@@ -1,29 +1,27 @@
 ---
 import '../css/main.css'
-import Base from '../layouts/Base.astro'
+import Layout from '../layouts/layout.astro'
 import Card from '../components/Card.astro'
 import Hero from '../components/Hero.astro'
 import ButtonEmail from '../components/ButtonEmail.astro'
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
-import type { Project } from '@/api'
-import { getProjects } from '@/api'
-
+import { getProjects, type Project } from '@/api'
 import c from '../content'
 
 import getImageUrl from '@/utils/getImageUrl'
 import List from '@/components/List.astro'
 import ListItem from '@/components/ListItem.astro'
 import CardPricing from '@/components/CardPricing.astro'
+import Technologies from '@/components/Technologies.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t: any = useTranslations(lang)
 
 const projects = await getProjects()
-
 ---
 
-<Base>
+<Layout>
   <Hero />
   <main>
     <section class="l-container l-container--full">
@@ -32,7 +30,7 @@ const projects = await getProjects()
       <div class="cards">
         {
           t('services').items.map((service: any) => (
-            <Card tag={service.tag} title={service.title}>
+            <Card tag={service.tag} title={service.title} template="default">
               <p>{service.description}</p>
             </Card>
           ))
@@ -53,6 +51,7 @@ const projects = await getProjects()
             role={project.role}
             title={project.title}
             imageSrc={getImageUrl(project.image.asset._ref)}
+            template="default"
           >
             <p set:html={project.description}></p>
             {
@@ -114,18 +113,8 @@ const projects = await getProjects()
     <!-- Technologies -->
     <section class="l-container l-container--full">
       <h2 class="c-h2">{ t('technologies').title }</h2>
-      <ul class="l-row l-row--wrap">
-        {
-          c.technologies.map((tech) => (
-            <li>
-              <img class="c-logo" src={`media/technologies/${tech.logo}.svg`} alt={tech.name} title={tech.name} loading="lazy" />
-            </li>
-          ))
-        }
-        <li>
-          { t('andmore') }
-        </li>
-      </ul>
+
+      <Technologies />
     </section>
 
     <section class="l-container">
@@ -135,7 +124,7 @@ const projects = await getProjects()
       </div>
     </section>
   </main>
-</Base>
+</Layout>
 
 <style scoped>
 .cards {

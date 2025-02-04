@@ -31,3 +31,15 @@ export async function getProject(slug: Slug): Promise<Project> {
     }
   )
 }
+
+
+export async function getTechnologies(): Promise<any[]> {
+  return await sanityClient.fetch(
+    groq`*[_type == 'technology'] | order(name desc)`
+  )
+}
+export async function getTechnologyTypes(): Promise<any[]> {
+  return await sanityClient.fetch(
+    groq`*[_type == 'technologyType'] | order(order asc)`
+  )
+}
