@@ -87,8 +87,8 @@ export const ui = {
           title: 'Base',
           description: 'Website com o essencial',
           features: [
-            'Design à medida',
-            '3 páginas',
+            'Template à medida',
+            'Páginas ilimitadas',
             'Formulário de contacto',
             'Domínio .com ou .pt (1 ano grátis)',
             'Email (1 ano grátis)',
@@ -228,8 +228,8 @@ export const ui = {
           title: 'Base',
           description: 'Website with the essentials',
           features: [
-            'Custom design',
-            '3 pages',
+            'Custom template',
+            'Unlimited pages',
             'Contact form',
             'Domain .com or .pt (1 year free)',
             'Email (1 year free)',
