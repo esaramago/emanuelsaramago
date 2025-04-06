@@ -23,32 +23,6 @@ const t: any = useTranslations(currentLang)
 		<meta name="keywords" content="Portfolio, Webdesign, Websites, Webdevelopment, Design, Vue.js">
 		<meta name="author" content="esaramago">
 
-		<!-- Google Tag Manager -->
-		<script is:inline>
-			(function (w, d, s, l, i) {
-				console.log("GTM");
-				w[l] = w[l] || [];
-				w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-				var f = d.getElementsByTagName(s)[0],
-					j = d.createElement(s),
-					dl = l != "dataLayer" ? "&l=" + l : "";
-				j.async = true;
-				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-				f.parentNode.insertBefore(j, f);
-			})(window, document, "script", "dataLayer", "GTM-N48BQBH8");
-		</script>
-		<!-- End Google Tag Manager -->
-
-		<!-- Google tag (gtag.js) -->
-		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-GY7BYJ0SZ2"></script>
-		<script is:inline>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-
-			gtag('config', 'G-GY7BYJ0SZ2');
-		</script>
-
 		<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
 
 		<!-- Open Graph / Facebook -->
@@ -75,17 +49,13 @@ const t: any = useTranslations(currentLang)
 	</head>
 	<body>
 
-		<!-- Google Tag Manager (noscript) -->
-		<noscript>
-			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N48BQBH8" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-		</noscript>
-		<!-- End Google Tag Manager (noscript) -->
+		<Header />
 
-			<Header />
+		<main>
+			<slot />
+		</main>
 
-      <slot />
-
-			<Footer />
+		<Footer />
 
 	</body>
 </html>

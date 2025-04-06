@@ -1,19 +1,28 @@
 ---
 import { getLangFromUrl } from '../i18n/utils'
 import { languages, defaultLang } from '../i18n/ui'
-import Social from './Social.astro'
+import Navigation from './Navigation.astro'
 
 const currentLang = getLangFromUrl(Astro.url)
+
+const pathname = new URL(Astro.request.url).pathname
+const currentPath = pathname.slice(1) // remove the first "/"
 ---
 
 <header class="header">
-  <div class="logo">
+  <a href={currentLang === 'pt' ? '/' : '/' + currentLang} class="logo">
     <svg class="logo__icon" width="55" height="55" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M54.842 19.747C54.842 14.51 52.761 9.48701 49.058 5.78401C45.355 2.081 40.332 0 35.095 0H19.746C14.509 0 9.487 2.081 5.783 5.78401C2.08 9.48701 0 14.51 0 19.747V35.0961C0 40.3331 2.08 45.3551 5.783 49.0581C9.487 52.7621 14.509 54.8421 19.746 54.8421H46.702C48.861 54.8421 50.931 53.9841 52.458 52.4581C53.984 50.9311 54.842 48.8611 54.842 46.7021V19.747Z" fill="white"/>
       <path fill-rule="evenodd" clip-rule="evenodd" d="M43.9209 22.8034C43.9209 19.6521 42.6687 16.6296 40.4404 14.4014C38.2122 12.1732 35.1898 10.921 32.0385 10.921H22.8025C19.6513 10.921 16.6294 12.1732 14.4006 14.4014C12.1724 16.6296 10.9208 19.6521 10.9208 22.8034V32.0393C10.9208 35.1906 12.1724 38.2125 14.4006 40.4407C16.6294 42.6695 19.6513 43.9211 22.8025 43.9211H42.9455C43.2042 43.9211 43.4521 43.8182 43.635 43.6353C43.818 43.4523 43.9209 43.2044 43.9209 42.9457V22.8034Z" fill="#004B4D"/>
       <path fill-rule="evenodd" clip-rule="evenodd" d="M35.7793 25.0965C35.7793 23.5101 35.1489 21.9885 34.0272 20.8668C32.9055 19.745 31.3839 19.1146 29.7974 19.1146H25.1478C23.5614 19.1146 22.0401 19.745 20.9181 20.8668C19.7963 21.9885 19.1663 23.5101 19.1663 25.0965V29.7462C19.1663 31.3326 19.7963 32.8539 20.9181 33.9756C22.0401 35.0977 23.5614 35.7278 25.1478 35.7278H33.3135C33.9675 35.7278 34.5946 35.4678 35.0572 35.0056C35.5194 34.543 35.7793 33.9159 35.7793 33.2619V25.0965Z" fill="white"/>
     </svg>
-    <span class="logo__text">Emanuel Saramago</span>
+    {
+      currentPath === '/' ? <span class="logo__text">Emanuel Saramago</span> : <h1 class="logo__text">Emanuel Saramago</h1>
+    }
+
+  </a>
+  <div class="header__navigation">
+    <Navigation />
   </div>
   <ul class="c-language-switcher">
     {Object.entries(languages).map(([lang]) => (
@@ -22,40 +31,28 @@ const currentLang = getLangFromUrl(Astro.url)
       </li>
     ))}
   </ul>
-  <div class="header__social">
-    <Social />
-  </div>
 </header>
 
 
 <style scoped>
 .header {
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  width: 100%;
   box-sizing: border-box;
-  display: grid;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--sl-spacing-small) var(--sl-spacing-x-large);
-  margin-bottom: var(--sl-spacing-large);
-  padding: var(--sl-spacing-medium) var(--sl-spacing-medium) var(--sl-spacing-small);
+  gap: var(--sl-spacing-small) var(--sl-spacing-large);
+  padding: var(--sl-spacing-medium);
   color: #FFF;
   fill: #FFF;
-  grid-template-areas: "logo lang soci";
-  grid-template-columns: 1fr auto auto;
-}
-
-.header__social {
-  grid-area: soci;
+  background-color: var(--sl-color-primary-500);
 }
 
 .logo {
-  grid-area: logo;
   display: flex;
   align-items: center;
   gap: var(--sl-spacing-small);
+  flex: 0;
+  text-decoration: none;
 }
 .logo__text {
   font-weight: 400;
@@ -63,9 +60,10 @@ const currentLang = getLangFromUrl(Astro.url)
   line-height: 1;
   flex: 0;
 }
-
+.header__navigation {
+  flex: 1;
+}
 .c-language-switcher {
-  grid-area: lang;
   display: flex;
   text-transform: uppercase;
   white-space: nowrap;
@@ -86,13 +84,6 @@ const currentLang = getLangFromUrl(Astro.url)
 @media (max-width: 767px) {
   .header {
     margin-block-end: var(--sl-spacing-medium);
-    grid-template-areas:
-      "logo lang"
-    ;
-    grid-template-columns: 1fr auto;
-  }
-  .header__social {
-    display: none;
   }
 }
 @media (max-width: 499px) {

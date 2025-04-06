@@ -1,0 +1,37 @@
+---
+import Layout from '@/layouts/layout.astro'
+import Card from '@/components/Card.astro'
+import getImageUrl from '@/utils/getImageUrl'
+import { getProjects, type Project } from '@/api'
+import Button from '@/components/Button.astro'
+const projects = await getProjects()
+---
+
+<Layout>
+  <div class="l-container">
+    <div class="l-stack l-stack--small">
+      <h1 class="c-h2 u-text-center">Projetos</h1>
+      <p class="u-text-center">Algum do meu trabalho</p>
+    </div>
+    <div class="l-cards l-cards--wide">
+
+      {projects.map((project: Project) => (
+        <Card
+          role={project.role}
+          title={project.title}
+          imageSrc={getImageUrl(project.image.asset._ref)}
+          template="default"
+        >
+          <p set:html={project.description}></p>
+          {
+            project.url ? (
+            <div>
+              <a href={project.url} target="_blank">{project.url.replace('https://', '')}</a>
+            </div>
+            ) : ''
+          }
+        </Card>
+      ))}
+    </div>
+  </div>
+</Layout>

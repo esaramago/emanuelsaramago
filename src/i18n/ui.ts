@@ -9,6 +9,10 @@ export const ui = {
   pt: {
     title: 'Emanuel Saramago | Faço websites',
     description: 'Página pessoal de Emanuel Saramago. UI Design e Frontend-Development',
+    navigation: {
+      home: 'Início',
+      projects: 'Projetos',
+    },
     hero: {
       heading1: 'Sou o Emanuel Saramago',
       heading2: 'e faço websites.',
@@ -151,6 +155,10 @@ export const ui = {
   en: {
     title: 'Emanuel Saramago | I make websites',
     description: 'Personal page of Emanuel Saramago. UI Design and Frontend-Development',
+    navigation: {
+      home: 'Home',
+      projects: 'Projects',
+    },
     hero: {
       heading1: 'I am Emanuel Saramago',
       heading2: 'and I make websites.',

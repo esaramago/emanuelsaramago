@@ -1,0 +1,46 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+const lang = getLangFromUrl(Astro.url)
+const t: any = useTranslations(lang)
+
+const pathname = new URL(Astro.request.url).pathname
+const currentPath = pathname.slice(1) // remove the first "/"
+
+const pages = [
+	{
+    name: t('navigation').home,
+    path: lang === 'en' ? lang : ''
+  },
+	{
+    name: t('navigation').projects,
+    path: lang === 'en' ? lang + '/projects' :  'projetos'
+  },
+]
+---
+
+<nav>
+  <ul>
+		{
+			pages.map(page => (
+				<li class={currentPath === page.path ? 'active' : ''}>
+					<a href={`/${page.path}`}>{page.name}</a>
+				</li>
+			))
+		}
+  </ul>
+</nav>
+
+<style>
+ul {
+  display: flex;
+  gap: var(--sl-spacing-small);
+}
+a {
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+.active a {
+  cursor: default;
+  font-weight: bold;
+}
+</style>
