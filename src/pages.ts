@@ -1,6 +1,10 @@
-const pages = {
+export const pageTranslation = {
   trabalho: 'work',
   work: 'trabalho',
 }
-
-export default pages
+export const pagePath = {
+  work: {
+    pt: 'trabalho',
+    en: 'work',
+  }
+}

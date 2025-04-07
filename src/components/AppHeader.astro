@@ -23,28 +23,32 @@ const currentPath = pathname.slice(1) // remove the first "/"
       }
     </a>
   </div>
-  <div class="header__navigation">
+  <div class="navigation">
     <AppNavigation />
   </div>
-  <AppLanguageSwitcher />
+  <div class="language-switcher">
+    <AppLanguageSwitcher />
+  </div>
 </header>
 
 
-<style scoped>
+<style>
 .header {
   box-sizing: border-box;
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: space-between;
-  gap: var(--sl-spacing-small) var(--sl-spacing-large);
+  gap: var(--sl-spacing-large);
   padding: var(--sl-spacing-medium);
   color: #FFF;
   fill: #FFF;
   background-color: var(--sl-color-primary-500);
-}
 
+  grid-template-areas: "logo navigation language";
+  grid-template-columns: 1fr auto auto;
+}
 .logo {
-  flex: 1;
+  grid-area: logo;
 }
 .logo > a {
   display: inline-flex;
@@ -58,13 +62,20 @@ const currentPath = pathname.slice(1) // remove the first "/"
   line-height: 1;
   flex: 0;
 }
-
-@media (max-width: 767px) {
-  .header {
-    margin-block-end: var(--sl-spacing-medium);
-  }
+.navigation {
+  grid-area: navigation;
+  justify-self: center;
 }
-@media (max-width: 499px) {
+.language-switcher {
+  grid-area: language;
+}
+
+@media (max-width: 700px) {
+  .header {
+    gap: var(--sl-spacing-medium);
+    grid-template-areas: "logo language" "navigation navigation";
+    grid-template-columns: 1fr auto;
+  }
   .logo__icon {
     width: 40px;
     height: 40px;

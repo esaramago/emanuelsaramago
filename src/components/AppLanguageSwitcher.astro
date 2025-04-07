@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl } from '../i18n/utils'
 import { languages, defaultLang } from '../i18n/ui'
-import pages from '@/pages'
+import {pageTranslation} from '@/pages'
 
 const pathname = new URL(Astro.request.url).pathname
 const currentLang = getLangFromUrl(Astro.url)
@@ -10,7 +10,7 @@ const currentPath = pathname.replace('/' + langPath, '').replaceAll('/', '') // 
 
 function getURL(lang: string) {
   const langPath = lang === defaultLang ? '' : '/' + lang
-  return `${langPath}/${pages[currentPath] || ''}`
+  return `${langPath}/${pageTranslation[currentPath] || ''}`
 }
 ---
 <ul>
@@ -26,17 +26,22 @@ ul {
   display: flex;
   text-transform: uppercase;
   white-space: nowrap;
-  margin-right: calc(var(--sl-spacing-small) * -1);
+  margin-inline-end: calc(var(--sl-spacing-small) * -1);
 }
 li:not(:last-child)::after {
   content: "|";
 }
-ul a {
+a {
   padding: var(--sl-spacing-small);
 }
 .active {
   text-decoration: none;
   font-weight: bold;
   cursor: default;
+}
+@media (max-width: 600px) {
+  a {
+    font-size: 1.6rem;
+  }
 }
 </style>

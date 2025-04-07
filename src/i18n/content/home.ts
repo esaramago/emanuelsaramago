@@ -187,7 +187,7 @@ export const homeEN = {
     ]
   },
   brands: {
-    title: 'Brands I`ve worked with'
+    title: 'Brands Iˈve worked with'
   },
   technologies: {
     title: 'Technologies I use'

@@ -55,50 +55,56 @@ technologyTypes.forEach((type) => {
 </ul>
 
 <style is:global>
-  .technologies .card {
-    align-items: center;
-  }
+.technologies .card {
+  align-items: center;
+}
 </style>
 <style>
-  .technologies {
-    display: flex;
-    gap: var(--sl-spacing-medium);
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .technology__header {
-    max-width: 18rem;
-    padding-inline-end: var(--sl-spacing-small);
-    border-inline-end: 1px solid var(--sl-color-primary-500);
-  }
+.technologies {
+  display: flex;
+  gap: var(--sl-spacing-medium);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.technology__header {
+  max-width: 18rem;
+  padding-inline-end: var(--sl-spacing-small);
+  border-inline-end: 1px solid var(--sl-color-primary-500);
+}
+.technology__logo {
+  max-width: 5rem;
+  max-height: 5rem;
+}
+@media (max-width: 1599px) {
   .technology__logo {
     max-width: 5rem;
     max-height: 5rem;
   }
-  @media (max-width: 1599px) {
-    .technology__logo {
-      max-width: 5rem;
-      max-height: 5rem;
-    }
+}
+@media (min-width: 1600px) {
+  .technology__logo {
+    max-width: 7rem;
+    max-height: 7rem;
   }
-  @media (min-width: 1600px) {
-    .technology__logo {
-      max-width: 7rem;
-      max-height: 7rem;
-    }
-    .technology__header {
-      max-width: 25rem;
-      padding-inline-end: var(--sl-spacing-medium);
-    }
+  .technology__header {
+    max-width: 25rem;
+    padding-inline-end: var(--sl-spacing-medium);
   }
-  @media (max-width: 980px) {
-    .technology__header {
-      width: 100%;
-      max-width: none;
-      padding-inline-end: 0;
-      border-inline-end: none;
-      padding-block-end: var(--sl-spacing-small);
-      border-block-end: 1px solid var(--sl-color-primary-500);
-    }
+}
+@media (max-width: 980px) {
+  .technology__header {
+    width: 100%;
+    max-width: none;
+    padding-inline-end: 0;
+    border-inline-end: none;
+    padding-block-end: var(--sl-spacing-small);
+    border-block-end: 1px solid var(--sl-color-primary-500);
   }
+}
+@media (max-width: 768px) {
+  .technologies > li {
+    width: 100%;
+    max-width: 500px;
+  }
+}
 </style>
