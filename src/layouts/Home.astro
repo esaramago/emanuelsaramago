@@ -4,6 +4,7 @@ import Layout from '../layouts/layout.astro'
 import Card from '../components/Card.astro'
 import Hero from '../components/Hero.astro'
 import ButtonEmail from '../components/ButtonEmail.astro'
+import Button from '../components/Button.astro'
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 import { getProjects, type Project } from '@/api'
@@ -19,16 +20,17 @@ const lang = getLangFromUrl(Astro.url)
 const t: any = useTranslations(lang)
 
 const projects = await getProjects()
+const featuredProjects = projects.filter((project: Project) => project.featured)
 ---
 
 <Layout>
   <Hero />
   <section class="l-container l-container--full">
-    <h2 class="c-h2">{ t('services').title }</h2>
+    <h2 class="c-h2">{ t('home').services.title }</h2>
 
     <div class="l-cards">
       {
-        t('services').items.map((service: any) => (
+        t('home').services.items.map((service: any) => (
           <Card tag={service.tag} title={service.title} template="default">
             <p>{service.description}</p>
           </Card>
@@ -42,10 +44,10 @@ const projects = await getProjects()
 
   <!-- Work -->
   <section class="l-container">
-    <h2 class="c-h2">{ t('work').title }</h2>
+    <h2 class="c-h2">{ t('home').work.title }</h2>
     <div class="l-cards l-cards--wide">
 
-      {projects.map((project: Project) => (
+      {featuredProjects.map((project: Project) => (
         <Card
           role={project.role}
           title={project.title}
@@ -64,16 +66,16 @@ const projects = await getProjects()
       ))}
     </div>
 
-    <ButtonEmail />
+    <Button href="/projetos">Mais trabalhos</Button>
   </section>
 
   <!-- Pricing -->
   <section class="l-container">
-    <h2 class="c-h2">{ t('pricing').title }</h2>
+    <h2 class="c-h2">{ t('home').pricing.title }</h2>
     <div class="l-cards">
 
       {
-        t('pricing').levels.map((level: any) => (
+        t('home').pricing.levels.map((level: any) => (
           <CardPricing
             title={level.title}
             subTitle={level.description}
@@ -94,7 +96,7 @@ const projects = await getProjects()
 
   <!-- Brands -->
   <section class="l-container l-container--full">
-    <h2 class="c-h2">{ t('brands').title }</h2>
+    <h2 class="c-h2">{ t('home').brands.title }</h2>
     <ul class="l-row l-row--wrap">
       {
         c.brands.map((brand) => (
@@ -111,7 +113,7 @@ const projects = await getProjects()
 
   <!-- Technologies -->
   <section class="l-container l-container--full">
-    <h2 class="c-h2">{ t('technologies').title }</h2>
+    <h2 class="c-h2">{ t('home').technologies.title }</h2>
 
     <Technologies />
   </section>

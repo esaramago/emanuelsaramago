@@ -3,15 +3,18 @@ import Layout from '@/layouts/layout.astro'
 import Card from '@/components/Card.astro'
 import getImageUrl from '@/utils/getImageUrl'
 import { getProjects, type Project } from '@/api'
-import Button from '@/components/Button.astro'
+import ButtonEmail from '@/components/ButtonEmail.astro'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
 const projects = await getProjects()
+const lang = getLangFromUrl(Astro.url)
+const t: any = useTranslations(lang)
 ---
 
 <Layout>
   <div class="l-container">
     <div class="l-stack l-stack--small">
-      <h1 class="c-h2 u-text-center">Projetos</h1>
-      <p class="u-text-center">Algum do meu trabalho</p>
+      <h1 class="c-h2 u-text-center">{t('work').title}</h1>
+      <p class="u-text-center">{t('work').description}</p>
     </div>
     <div class="l-cards l-cards--wide">
 
@@ -34,4 +37,10 @@ const projects = await getProjects()
       ))}
     </div>
   </div>
+  <section class="l-container">
+    <h2 class="c-h2">{ t('interested') }</h2>
+    <div>
+      <ButtonEmail />
+    </div>
+  </section>
 </Layout>
