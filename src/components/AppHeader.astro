@@ -1,12 +1,13 @@
 ---
 import { getLangFromUrl } from '../i18n/utils'
-import { languages, defaultLang } from '../i18n/ui'
-import Navigation from './Navigation.astro'
+import AppNavigation from './AppNavigation.astro'
+import AppLanguageSwitcher from './AppLanguageSwitcher.astro'
 
 const currentLang = getLangFromUrl(Astro.url)
 
 const pathname = new URL(Astro.request.url).pathname
 const currentPath = pathname.slice(1) // remove the first "/"
+
 ---
 
 <header class="header">
@@ -23,15 +24,9 @@ const currentPath = pathname.slice(1) // remove the first "/"
     </a>
   </div>
   <div class="header__navigation">
-    <Navigation />
+    <AppNavigation />
   </div>
-  <ul class="c-language-switcher">
-    {Object.entries(languages).map(([lang]) => (
-      <li>
-        <a href={`/${lang === defaultLang ? '' : lang}`} class={lang === currentLang ? `c-language-switcher__active` : ''}>{lang}</a>
-      </li>
-    ))}
-  </ul>
+  <AppLanguageSwitcher />
 </header>
 
 
@@ -62,23 +57,6 @@ const currentPath = pathname.slice(1) // remove the first "/"
   font-size: 2.2rem;
   line-height: 1;
   flex: 0;
-}
-.c-language-switcher {
-  display: flex;
-  text-transform: uppercase;
-  white-space: nowrap;
-  margin-right: calc(var(--sl-spacing-small) * -1);
-}
-.c-language-switcher li:not(:last-child)::after {
-  content: "|";
-}
-.c-language-switcher a {
-  padding: var(--sl-spacing-small);
-}
-.c-language-switcher__active {
-  text-decoration: none;
-  font-weight: bold;
-  cursor: default;
 }
 
 @media (max-width: 767px) {

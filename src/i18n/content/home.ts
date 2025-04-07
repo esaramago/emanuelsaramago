@@ -37,6 +37,7 @@ export const homePT = {
   },
   work: {
     title: 'Trabalhos em destaque',
+    button: 'Mais trabalhos',
   },
   pricing: {
     title: 'Planos à sua medida',
@@ -134,6 +135,7 @@ export const homeEN = {
   },
   work: {
     title: 'My featured work',
+    button: 'More of my work',
   },
   pricing: {
     title: 'Plans tailored to you',

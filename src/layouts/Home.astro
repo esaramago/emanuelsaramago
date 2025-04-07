@@ -11,6 +11,7 @@ import { getProjects, type Project } from '@/api'
 import c from '../content'
 
 import getImageUrl from '@/utils/getImageUrl'
+import getUrl from '@/utils/getUrl'
 import List from '@/components/List.astro'
 import ListItem from '@/components/ListItem.astro'
 import CardPricing from '@/components/CardPricing.astro'
@@ -66,7 +67,7 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
       ))}
     </div>
 
-    <Button href="/projetos">Mais trabalhos</Button>
+    <Button href={getUrl('work', lang)}>{t('home').work.button}</Button>
   </section>
 
   <!-- Pricing -->
