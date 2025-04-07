@@ -1,0 +1,66 @@
+---
+interface ButtonProps {
+  size?: 'xs' | 'sm',
+  variant?: 'light'
+  href: string
+}
+const {
+  size,
+  variant,
+  href
+} = Astro.props as ButtonProps
+---
+
+<a
+  href={href}
+  class={`
+    button
+    ${size && `button--${size}`}
+    ${variant && `button--${variant}`}
+  `}
+>
+  <slot />
+</a>
+
+<style scoped>
+  .button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sl-spacing-x-small);
+    border: .3rem solid;
+    border-radius: var(--sl-spacing-x-small);
+    height: 7rem;
+    padding: var(--sl-spacing-x-small) var(--sl-spacing-medium);
+    box-sizing: border-box;
+    font-size: 2.6rem;
+    text-decoration: none;
+    background-color: var(--sl-color-primary-500);
+    white-space: nowrap;
+    color: #FFF;
+    fill: #FFF;
+    border-color: var(--sl-color-primary-800);
+    transition: background-color .2s;
+  }
+  .button--light {
+    border-color: currentColor
+  }
+  .button--sm {
+    height: 5rem;
+    font-size: 1.8rem;
+    padding: var(--sl-spacing-x-small) var(--sl-spacing-small);
+  }
+  .button--xs {
+    height: 4rem;
+    font-size: 1.6rem;
+    padding: var(--sl-spacing-x-small) var(--sl-spacing-small);
+    border-width: .2rem;
+  }
+  .button:hover {
+    background-color: var(--sl-color-primary-400);
+  }
+  @media (max-width: 767px) {
+    .button--sm {
+      font-size: 1.5rem;
+    }
+  }
+  </style>

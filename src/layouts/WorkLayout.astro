@@ -1,0 +1,46 @@
+---
+import Layout from '@/layouts/layout.astro'
+import Card from '@/components/Card.astro'
+import getImageUrl from '@/utils/getImageUrl'
+import { getProjects, type Project } from '@/api'
+import ButtonEmail from '@/components/ButtonEmail.astro'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+const projects = await getProjects()
+const lang = getLangFromUrl(Astro.url)
+const t: any = useTranslations(lang)
+---
+
+<Layout>
+  <div class="l-container">
+    <div class="l-stack l-stack--small">
+      <h1 class="c-h2 u-text-center">{t('work').title}</h1>
+      <p class="u-text-center">{t('work').description}</p>
+    </div>
+    <div class="l-cards l-cards--wide">
+
+      {projects.map((project: Project) => (
+        <Card
+          role={project.role}
+          title={project.title}
+          imageSrc={getImageUrl(project.image.asset._ref)}
+          template="default"
+        >
+          <p set:html={project.description}></p>
+          {
+            project.url ? (
+            <div>
+              <a href={project.url} target="_blank">{project.url.replace('https://', '')}</a>
+            </div>
+            ) : ''
+          }
+        </Card>
+      ))}
+    </div>
+  </div>
+  <section class="l-container">
+    <h2 class="c-h2">{ t('interested') }</h2>
+    <div>
+      <ButtonEmail />
+    </div>
+  </section>
+</Layout>

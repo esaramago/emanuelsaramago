@@ -1,3 +1,8 @@
 .l-stack {
-
+  display: flex;
+  flex-direction: column;
+  gap: var(--sl-spacing-large);
+}
+.l-stack--small {
+  gap: var(--sl-spacing-small);
 }

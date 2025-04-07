@@ -11,6 +11,9 @@ interface CustomImageAsset {
 export interface Project {
 	title: string
 	description: string
+	featured?: boolean
+  date: string
+  slug: Slug
 	role: 'design' | 'development' | 'both'
 	image?: CustomImageAsset
 	isImageScrollable?: boolean
