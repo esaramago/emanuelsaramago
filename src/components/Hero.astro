@@ -11,12 +11,12 @@ const t: any = useTranslations(lang)
 
 <div class="hero">
   <div class="hero__container l-container">
-    <h1 class="hero__1">Olá!</h1>
+    <span class="hero__1">Olá!</span>
     <h2>
-      <span class="hero__2">{ t('hero').heading1 }</span>
-      <span class="hero__3">{ t('hero').heading2 }</span>
+      <span class="hero__2">{ t('home').hero.heading1 }</span>
+      <span class="hero__3">{ t('home').hero.heading2 }</span>
     </h2>
-    <p>{ t('hero').text1 }<br>{ t('hero').text2 }</p>
+    <p>{ t('home').hero.text1 }<br>{ t('home').hero.text2 }</p>
     <div>
       <ButtonEmail variant="light" />
     </div>
@@ -33,9 +33,8 @@ const t: any = useTranslations(lang)
   position: relative;
   min-height: 90vh;
   box-sizing: border-box;
-  padding-block-start: 8rem;
+  padding-block-start: 12rem;
   padding-block-end: var(--sl-spacing-large);
-  margin-block-end: 18rem;
   text-align: center;
   background-color: var(--sl-color-primary-500);
   color: #FFF;
@@ -60,6 +59,7 @@ const t: any = useTranslations(lang)
   gap: var(--sl-spacing-large);
 }
 .hero__1 {
+  font-weight: 500;
   font-size: clamp(6rem, 10rem, 10rem);
 }
 .hero__2 {
@@ -76,12 +76,6 @@ const t: any = useTranslations(lang)
 p {
   max-width: 75rem;
   font-size: 1.8rem;
-}
-
-@media (min-width: 768px) {
-  .social {
-    display: none;
-  }
 }
 @media (max-width: 767px) {
   .hero {

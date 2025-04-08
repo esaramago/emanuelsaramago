@@ -4,12 +4,14 @@ import Layout from '../layouts/layout.astro'
 import Card from '../components/Card.astro'
 import Hero from '../components/Hero.astro'
 import ButtonEmail from '../components/ButtonEmail.astro'
+import Button from '../components/Button.astro'
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 import { getProjects, type Project } from '@/api'
 import c from '../content'
 
 import getImageUrl from '@/utils/getImageUrl'
+import getUrl from '@/utils/getUrl'
 import List from '@/components/List.astro'
 import ListItem from '@/components/ListItem.astro'
 import CardPricing from '@/components/CardPricing.astro'
@@ -19,127 +21,121 @@ const lang = getLangFromUrl(Astro.url)
 const t: any = useTranslations(lang)
 
 const projects = await getProjects()
+const featuredProjects = projects.filter((project: Project) => project.featured)
 ---
 
 <Layout>
   <Hero />
-  <main>
-    <section class="l-container l-container--full">
-      <h2 class="c-h2">{ t('services').title }</h2>
+  <section class="l-container l-container--full">
+    <h2 class="c-h2">{ t('home').services.title }</h2>
 
-      <div class="cards">
-        {
-          t('services').items.map((service: any) => (
-            <Card tag={service.tag} title={service.title} template="default">
-              <p>{service.description}</p>
-            </Card>
-          ))
-        }
-      </div>
-
-      <ButtonEmail />
-
-    </section>
-
-    <!-- Work -->
-    <section class="l-container">
-      <h2 class="c-h2">{ t('work').title }</h2>
-      <div class="cards cards--wide">
-
-        {projects.map((project: Project) => (
-          <Card
-            role={project.role}
-            title={project.title}
-            imageSrc={getImageUrl(project.image.asset._ref)}
-            template="default"
-          >
-            <p set:html={project.description}></p>
-            {
-              project.url ? (
-              <div>
-                <a href={project.url} target="_blank">{project.url.replace('https://', '')}</a>
-              </div>
-              ) : ''
-            }
+    <div class="l-cards">
+      {
+        t('home').services.items.map((service: any) => (
+          <Card tag={service.tag} title={service.title} template="default">
+            <p>{service.description}</p>
           </Card>
-        ))}
-      </div>
+        ))
+      }
+    </div>
 
+    <ButtonEmail />
+
+  </section>
+
+  <!-- Work -->
+  <section class="l-container">
+    <h2 class="c-h2">{ t('home').work.title }</h2>
+    <div class="l-cards l-cards--wide">
+
+      {featuredProjects.map((project: Project) => (
+        <Card
+          role={project.role}
+          title={project.title}
+          imageSrc={getImageUrl(project.image.asset._ref)}
+          template="default"
+        >
+          <p set:html={project.description}></p>
+          {
+            project.url ? (
+            <div>
+              <a href={project.url} target="_blank">{project.url.replace('https://', '')}</a>
+            </div>
+            ) : ''
+          }
+        </Card>
+      ))}
+    </div>
+
+    <Button href={getUrl('work', lang)}>{t('home').work.button}</Button>
+  </section>
+
+  <!-- Pricing -->
+  <section class="l-container">
+    <h2 class="c-h2">{ t('home').pricing.title }</h2>
+    <div class="l-cards">
+
+      {
+        t('home').pricing.levels.map((level: any) => (
+          <CardPricing
+            title={level.title}
+            subTitle={level.description}
+            price={level.price}
+          >
+            <List>
+              {
+                level.features.map((feature: any) => (
+                  <ListItem>{feature}</ListItem>
+                ))
+              }
+            </List>
+          </CardPricing>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Brands -->
+  <section class="l-container l-container--full">
+    <h2 class="c-h2">{ t('home').brands.title }</h2>
+    <ul class="l-row l-row--wrap">
+      {
+        c.brands.map((brand) => (
+          <li>
+            <img class="c-logo" src={`media/brands/${brand.logo}.svg`} alt={brand.name} title={brand.name} loading="lazy" />
+          </li>
+        ))
+      }
+      <li>
+        { t('andmore') }
+      </li>
+    </ul>
+  </section>
+
+  <!-- Technologies -->
+  <section class="l-container l-container--full">
+    <h2 class="c-h2">{ t('home').technologies.title }</h2>
+
+    <Technologies />
+  </section>
+
+  <section class="l-container">
+    <h2 class="c-h2">{ t('interested') }</h2>
+    <div>
       <ButtonEmail />
-    </section>
-
-    <!-- Pricing -->
-    <section class="l-container">
-      <h2 class="c-h2">{ t('pricing').title }</h2>
-      <div class="cards">
-
-        {
-          t('pricing').levels.map((level: any) => (
-            <CardPricing
-              title={level.title}
-              subTitle={level.description}
-              price={level.price}
-            >
-              <List>
-                {
-                  level.features.map((feature: any) => (
-                    <ListItem>{feature}</ListItem>
-                  ))
-                }
-              </List>
-            </CardPricing>
-          ))
-        }
-      </div>
-    </section>
-
-    <!-- Brands -->
-    <section class="l-container l-container--full">
-      <h2 class="c-h2">{ t('brands').title }</h2>
-      <ul class="l-row l-row--wrap">
-        {
-          c.brands.map((brand) => (
-            <li>
-              <img class="c-logo" src={`media/brands/${brand.logo}.svg`} alt={brand.name} title={brand.name} loading="lazy" />
-            </li>
-          ))
-        }
-        <li>
-          { t('andmore') }
-        </li>
-      </ul>
-    </section>
-
-    <!-- Technologies -->
-    <section class="l-container l-container--full">
-      <h2 class="c-h2">{ t('technologies').title }</h2>
-
-      <Technologies />
-    </section>
-
-    <section class="l-container">
-      <h2 class="c-h2">{ t('interested') }</h2>
-      <div>
-        <ButtonEmail />
-      </div>
-    </section>
-  </main>
+    </div>
+  </section>
 </Layout>
 
-<style scoped>
-.cards {
-	--min: 36rem;
-	display: grid;
-	justify-content: center;
-	gap: var(--sl-spacing-medium);
+<style is:global>
+main {
+  margin-block-start: 0;
+}
+.header {
+  position: absolute;
+  z-index: 1;
+  left: 0;
   width: 100%;
-}
-.cards--wide {
-	--min: 100%;
-}
-@media (min-width: 980px) {
-	.cards {
-		grid-template-columns: repeat( auto-fit, minmax(var(--min), 1fr) );
-	}
+  background-color: transparent !important;
 }
 </style>

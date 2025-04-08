@@ -7,6 +7,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 20rem;
+  margin-block-start: 6rem;
+  min-height: 40vh;
 }
 @media (max-width: 767px) {
   main {

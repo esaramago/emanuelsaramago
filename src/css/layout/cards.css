@@ -1,0 +1,15 @@
+.l-cards {
+	--min: 36rem;
+	display: grid;
+	justify-content: center;
+	gap: var(--sl-spacing-medium);
+  width: 100%;
+}
+.l-cards--wide {
+	--min: 100%;
+}
+@media (min-width: 980px) {
+	.l-cards {
+		grid-template-columns: repeat( auto-fit, minmax(var(--min), 1fr) );
+	}
+}

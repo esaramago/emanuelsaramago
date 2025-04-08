@@ -20,6 +20,7 @@ import vercel from '@astrojs/vercel'
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'static',
   adapter: vercel({
     webAnalytics: {
       enabled: true
@@ -31,7 +32,7 @@ export default defineConfig({
       dataset,
       studioBasePath: '/admin',
       useCdn: false,
-      apiVersion: '2025-02-04' // Set to date of setup to use the latest API version
+      apiVersion: '2025-04-07' // Set to date of setup to use the latest API version
     }),
     react() // Required for Sanity Studio
   ]
