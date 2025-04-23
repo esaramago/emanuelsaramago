@@ -14,17 +14,13 @@ const dataset = PUBLIC_SANITY_DATASET
 import sanity from '@sanity/astro'
 import react from '@astrojs/react'
 
-// Change this depending on your hosting provider (Vercel, Netlify etc)
-// https://docs.astro.build/en/guides/server-side-rendering/#adding-an-adapter
-import vercel from '@astrojs/vercel'
+import node from '@astrojs/node'
 
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true
-    }
+  adapter: node({
+    mode: 'standalone', // Use 'standalone' for serverless deployment
   }),
   integrations: [
     sanity({
