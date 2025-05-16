@@ -26,7 +26,7 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
 
 <Layout>
   <Hero />
-  <section class="l-container l-container--full">
+  <section class="l-container l-container--wide">
     <h2 class="c-h2">{ t('home').services.title }</h2>
 
     <div class="l-cards">
@@ -96,7 +96,7 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
   </section>
 
   <!-- Brands -->
-  <section class="l-container l-container--full">
+  <section class="l-container l-container--wide">
     <h2 class="c-h2">{ t('home').brands.title }</h2>
     <ul class="l-row l-row--wrap">
       {
@@ -113,7 +113,7 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
   </section>
 
   <!-- Technologies -->
-  <section class="l-container l-container--full">
+  <section class="l-container l-container--wide">
     <h2 class="c-h2">{ t('home').technologies.title }</h2>
 
     <Technologies />

@@ -9,8 +9,8 @@
   margin-inline: auto;
   gap: var(--sl-spacing-large);
 }
-.l-container--full {
-  max-width: 100%;
+.l-container--wide {
+  max-width: 240rem;
 }
 @media (max-width: 767px) {
   .l-container {
