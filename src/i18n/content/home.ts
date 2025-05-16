@@ -48,14 +48,13 @@ export const homePT = {
         description: 'Website com o essencial',
         features: [
           'Template à medida',
-          'Páginas ilimitadas',
           'Formulário de contacto',
           'Domínio .com ou .pt (1 ano grátis)',
           'Email (1 ano grátis)',
           'Painel de administração',
           'Ferramentas SEO',
         ],
-        price: 400,
+        price: 800,
       },
       {
         title: 'Avançado',
@@ -69,7 +68,7 @@ export const homePT = {
           'Painel de administração',
           'Ferramentas SEO',
         ],
-        price: 1000,
+        price: 1200,
       },
       {
         title: 'Profissional',
