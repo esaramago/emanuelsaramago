@@ -30,7 +30,12 @@ export const homePT = {
       },
       {
         title: 'E-commerce',
-        description: 'Faço com que venda online.',
+        description: 'Faço com que o seu negócio tenha presença online.',
+        tag: 'Development'
+      },
+      {
+        title: 'PWA',
+        description: 'Faço com que o seu website seja instalável em qualquer dispositivo.',
         tag: 'Development'
       },
     ]
@@ -127,7 +132,12 @@ export const homeEN = {
       },
       {
         title: 'E-commerce',
-        description: 'I make you sell online.',
+        description: 'I make your business sell online.',
+        tag: 'Development'
+      },
+      {
+        title: 'PWA',
+        description: 'I make your website installable on any device.',
         tag: 'Development'
       },
     ]
