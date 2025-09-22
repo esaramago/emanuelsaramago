@@ -5,8 +5,6 @@ import Footer from '../components/AppFooter.astro'
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
-import Analytics from '@vercel/analytics/astro'
-
 const currentLang = getLangFromUrl(Astro.url)
 const t: any = useTranslations(currentLang)
 
@@ -45,7 +43,6 @@ const t: any = useTranslations(currentLang)
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
 		<meta name="generator" content={Astro.generator} />
-		<Analytics />
 
 		<script is:inline defer data-domain="emanuelsaramago.com" src="https://plausible.emanuelsaramago.com/js/script.outbound-links.js"></script>
 		<script is:inline>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
