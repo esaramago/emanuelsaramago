@@ -9,7 +9,10 @@
 @import url(layout/cards.css);
 
 @import url(components/headings.css);
+@import url(components/label.css);
 @import url(components/logo.css);
 @import url(components/icon.css);
+@import url(components/select.css);
+@import url(components/input.css);
 
 @import url(utilities/utilities.css);

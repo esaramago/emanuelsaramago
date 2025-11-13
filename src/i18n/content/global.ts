@@ -4,6 +4,7 @@ export const globalPT = {
   navigation: {
     home: 'Início',
     work: 'Trabalho',
+    meeting: 'Reunião',
   },
   interested: 'Interessado?',
   contactme: 'Contacte-me',
@@ -22,6 +23,7 @@ export const globalEN = {
   navigation: {
     home: 'Home',
     work: 'Work',
+    meeting: 'Meeting',
   },
   interested: 'Interested?',
   andmore: 'And more...',

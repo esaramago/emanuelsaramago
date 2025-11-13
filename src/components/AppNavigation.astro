@@ -13,8 +13,13 @@ const pages = [
   },
 	{
     name: t('navigation').work,
-    path: lang === 'en' ? lang + '/work' :  'trabalho'
+    path: lang === 'en' ? lang + '/work' : 'trabalho'
   },
+  {
+    name: t('navigation').meeting,
+    path: lang === 'en' ? lang + '/meeting' : 'reuniao',
+    external: true,
+  }
 ]
 ---
 
@@ -23,7 +28,7 @@ const pages = [
 		{
 			pages.map(page => (
 				<li class={currentPath === page.path ? 'active' : ''}>
-					<a href={`/${page.path}`}>{page.name}</a>
+					<a href={`/${page.path}`} target={page.external ? '_blank' : '_self'}>{page.name}</a>
 				</li>
 			))
 		}
@@ -33,14 +38,14 @@ const pages = [
 <style>
 ul {
   display: flex;
-  gap: var(--sl-spacing-small);
+  gap: var(--sl-spacing-medium);
 }
 a {
   font-size: 1.8rem;
+  text-decoration: none;
 }
 .active a {
   cursor: default;
   font-weight: bold;
-  text-decoration: none;
 }
 </style>

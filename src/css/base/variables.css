@@ -1,5 +1,9 @@
 :root {
-  --font-size-sm: 1.3rem;
-  --font-size-md: 1.6rem;
-  --font-size-lg: 1.9rem;
+  --font-size-s: 1.3rem;
+  --font-size-m: 1.6rem;
+  --font-size-l: 1.9rem;
+
+  --form-height-m: 7rem;
+  --form-height-s: 5rem;
+  --form-height-xs: 4rem;
 }

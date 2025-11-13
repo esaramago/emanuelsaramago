@@ -1,0 +1,10 @@
+input {
+    border: 2px solid var(--sl-color-neutral-500);
+    padding-inline: var(--sl-spacing-small);
+    border-radius: var(--sl-spacing-x-small);
+    &[type="date"],
+    &[type="number"],
+    &[type="text"] {
+        height: var(--form-height-m);
+    }
+}

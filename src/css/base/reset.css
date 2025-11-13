@@ -41,6 +41,13 @@ img {
 }
 
 button,
-input {
+input,
+select {
   font-size: inherit;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+input,
+select {
+  width: 100%;
 }

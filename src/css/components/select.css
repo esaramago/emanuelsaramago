@@ -1,0 +1,7 @@
+select {
+    border-radius: var(--sl-spacing-x-small);
+    background-color: var(--sl-color-neutral-0);
+    padding-inline: var(--sl-spacing-small);
+    height: var(--form-height-m);
+    border: 2px solid var(--sl-color-neutral-500);
+}

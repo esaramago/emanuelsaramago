@@ -2,34 +2,48 @@
 interface ButtonProps {
   size?: 'xs' | 'sm',
   variant?: 'light'
-  href: string
+  href?: string
+  type?: 'button' | 'submit' | 'reset'
 }
 const {
   size,
   variant,
-  href
+  href,
+  type = 'button'
 } = Astro.props as ButtonProps
 ---
 
-<a
-  href={href}
-  class={`
-    button
-    ${size && `button--${size}`}
-    ${variant && `button--${variant}`}
-  `}
->
-  <slot />
-</a>
+{
+  href ? (
+    <a
+      href={href}
+      class={`
+        button
+        ${size && `button--${size}`}
+        ${variant && `button--${variant}`}
+      `}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button
+      type={type}
+      class={`button ${size && `button--${size}`} ${variant && `button--${variant}`}`}
+    >
+      <slot />
+    </button>
+  )
+}
 
 <style scoped>
   .button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: var(--sl-spacing-x-small);
     border: .3rem solid;
     border-radius: var(--sl-spacing-x-small);
-    height: 7rem;
+    height: var(--form-height-m);
     padding: var(--sl-spacing-x-small) var(--sl-spacing-medium);
     box-sizing: border-box;
     font-size: 2.6rem;
@@ -45,12 +59,12 @@ const {
     border-color: currentColor
   }
   .button--sm {
-    height: 5rem;
+    height: var(--form-height-s);
     font-size: 1.8rem;
     padding: var(--sl-spacing-x-small) var(--sl-spacing-small);
   }
   .button--xs {
-    height: 4rem;
+    height: var(--form-height-xs);
     font-size: 1.6rem;
     padding: var(--sl-spacing-x-small) var(--sl-spacing-small);
     border-width: .2rem;
