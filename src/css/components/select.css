@@ -1,4 +1,4 @@
-select {
+.c-select {
     border-radius: var(--sl-spacing-x-small);
     background-color: var(--sl-color-neutral-0);
     padding-inline: var(--sl-spacing-small);

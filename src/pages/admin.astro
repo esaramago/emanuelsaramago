@@ -1,5 +1,368 @@
 ---
-import AdminLayout from '@/layouts/AdminLayout.astro'
+import Layout from '@/layouts/layout.astro'
+import Card from '@/components/Card.astro'
+import Button from '@/components/Button.astro'
 ---
 
-<AdminLayout />
+<Layout>
+
+  <es-stack class="l-container">
+    <h1>Admin</h1>
+
+    <es-stack direction="row" break="tablet">
+      <Card title="Criar fatura" template="default">
+        <form id="invoiceForm">
+          <div class="l-stack l-stack--s">
+          <div>
+            <label for="date">Fatura n.</label>
+            <input
+              required
+              type="number"
+              name="invoiceNumber"
+              id="invoiceNumber"
+              class="c-input"
+              data-target="number"
+            >
+          </div>
+          <div>
+            <label for="date">Data</label>
+            <input
+              required
+              type="date"
+              name="date"
+              id="date"
+              class="c-input"
+            >
+          </div>
+          <div>
+              <label for="client">Cliente</label>
+              <select required name="client" id="client" class="c-select">
+              <option value="1">Vesselindex</option>
+              <option value="2">Liengaard & Roschmann Aps</option>
+              </select>
+          </div>
+          <div>
+              <label for="date">Mês data fatura</label>
+              <input
+              required
+              type="month"
+              name="month"
+              id="month"
+              class="c-input"
+              >
+          </div>
+          <div>
+              <label for="date">Horas</label>
+              <input
+              required
+              type="number"
+              name="hours"
+              id="hours"
+              class="c-input"
+              min="0"
+              step="1"
+              >
+          </div>
+          <div>
+              <label for="date">Valor/hora</label>
+              <input
+              required
+              type="number"
+              name="hourlyRate"
+              id="hourlyRate"
+              value="40"
+              class="c-input"
+              min="0"
+              step="1"
+              >
+          </div>
+          <Button type="submit" id="printButton" type="button">Imprimir</Button>
+          </div>
+        </form>
+      </Card>
+      <Card title="Fatura">
+        <div class="invoice">
+          <!-- Header -->
+          <div class="invoice__header">
+            <h1 class="invoice__title">INVOICE</h1>
+            <div class="invoice__header-info">
+              <div><strong>Invoice no.:</strong> <span data-invoice-number>[invoiceNumber]</span></div>
+              <div><strong>Date:</strong> <span data-invoice-date>[date]</span></div>
+            </div>
+          </div>
+
+          <es-stack direction="row">
+            <!-- From Section -->
+            <div grow="1">
+              <div class="invoice__section-label">From Emanuel Saramago</div>
+              <div class="invoice__address">
+                <div>Emanuel Saramago</div>
+                <div>Av. General Roçadas 141 2cv E</div>
+                <div>1170-158 Lisboa, Portugal</div>
+                <div>VAT: 217469183</div>
+                <div>Phone: 00351 968 665 757</div>
+                <div>Email: vi@emanuelsaramago.com</div>
+              </div>
+            </div>
+
+            <!-- Billed To Section -->
+            <div grow="1" data-invoice-client>
+              <div class="invoice__section-label">Billed to</div>
+              <div class="invoice__address">
+                <div data-invoice-client-name>Liengaard & Roschmann Aps</div>
+                <div data-invoice-client-address-1>Hollændervej 23B, 2 1855</div>
+                <div data-invoice-client-address-2>Frederiksberg C. Copenhagen, Denmark</div>
+                <div>VAT: <span data-invoice-client-vat>38614177</span></div>
+              </div>
+            </div>
+          </es-stack>
+
+          <!-- Items Table -->
+          <es-stack gap="s">
+            <table>
+              <thead>
+                <tr>
+                  <th>Description</th>
+                  <th>Unit price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-invoice-description>
+                    Design and web development<br>
+                    <span data-invoice-client-name>[clientName]</span>: [month]
+                  </td>
+                  <td data-invoice-unit-price>[hourlyRate]€/h</td>
+                  <td data-invoice-quantity>[hours]</td>
+                  <td data-invoice-item-total>[itemTotal] €</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Summary -->
+            <div class="invoice__summary">
+              <div class="invoice__summary-row">
+                <span>Subtotal:</span>
+                <span data-invoice-subtotal>[subtotal] €</span>
+              </div>
+              <div class="invoice__summary-row">
+                <span>VAT:</span>
+                <span>0 %</span>
+              </div>
+              <div class="invoice__summary-row invoice__summary-row--total">
+                <span>Invoice total:</span>
+                <span data-invoice-total>[total] €</span>
+              </div>
+            </div>
+          </es-stack>
+
+          <!-- Payment Information -->
+          <es-stack gap="xs">
+            <div>
+              <strong>Invoice to be paid to</strong> Emanuel André Pais Saramago
+            </div>
+            <div>
+              <strong>IBAN:</strong> PT50 0269 0391 00206138969 13
+            </div>
+            <div>
+              <strong>BIC/SWIFT:</strong> BKBKPTPL
+            </div>
+          </es-stack>
+        </div>
+      </Card>
+    </es-stack>
+  </div>
+</Layout>
+
+<style scoped>
+
+  /* Invoice Styles */
+  .invoice-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-spacing-medium);
+  }
+
+  .invoice {
+    width: 210mm;
+    min-height: 297mm;
+    background-color: #fff;
+    color: #000;
+    padding: 20mm;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-spacing-large);
+    font-size: 1.4rem;
+    line-height: 1.6;
+  }
+
+  .invoice__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--sl-spacing-large);
+  }
+
+  .invoice__title {
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 0.05em;
+  }
+
+  .invoice__header-info {
+    text-align: right;
+    font-size: 1.4rem;
+    line-height: 1.8;
+  }
+
+  .invoice__from,
+  .invoice__billed-to,
+  .invoice__payment {
+    margin-bottom: var(--sl-spacing-medium);
+  }
+
+  .invoice__section-label {
+    font-weight: 600;
+    margin-bottom: var(--sl-spacing-x-small);
+    font-size: 1.4rem;
+  }
+
+  .invoice__address {
+    font-size: 1.4rem;
+    line-height: 1.8;
+  }
+
+  .invoice__address > div {
+    margin-bottom: 0.2rem;
+  }
+
+  thead {
+    background-color: #f5f5f5;
+  }
+
+  th {
+    padding: var(--sl-spacing-small);
+    text-align: end;
+    font-weight: 600;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+    &:first-child {
+      text-align: start;
+      white-space: normal;
+    }
+  }
+
+  td {
+    padding: var(--sl-spacing-small);
+    font-size: 1.4rem;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+    text-align: end;
+    &:first-child {
+      text-align: start;
+      white-space: normal;
+    }
+  }
+
+  .invoice__summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--sl-spacing-x-small);
+    margin-left: auto;
+    margin-inline-end: 1rem;
+    width: fit-content;
+  }
+
+  .invoice__summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--sl-spacing-medium);
+    width: 200px;
+    font-size: 1.4rem;
+  }
+
+  .invoice__summary-row--total {
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-top: var(--sl-spacing-x-small);
+    padding-top: var(--sl-spacing-x-small);
+    border-top: 1px solid #000;
+  }
+
+  .invoice__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--sl-spacing-medium);
+  }
+
+  /* Print Styles */
+  @media print {
+    body * {
+      visibility: hidden;
+    }
+    .invoice-container,
+    .invoice-container * {
+      visibility: visible;
+    }
+    .invoice-container {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+    .invoice {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0;
+      padding: 20mm;
+      box-shadow: none;
+    }
+    .invoice__actions {
+      display: none;
+    }
+    .card {
+      background-color: transparent;
+      box-shadow: none;
+      padding: 0;
+      border-radius: 0;
+    }
+  }
+
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const printButton = document.getElementById('printButton');
+    if (printButton) {
+      printButton.addEventListener('click', () => {
+        window.print();
+      });
+    }
+
+    const 
+
+    const invoiceForm = document.getElementById('invoiceForm') as HTMLFormElement
+    invoiceForm.querySelectorAll('input, select').forEach(input => {
+      input.addEventListener('input', (event: Event) => {
+        updateInvoice(event, input.name)
+      });
+    });
+      updateInvoice(event, 'number')
+    });
+
+    function updateInvoice(event: Event, attribute: string) {
+      if (!event || !attribute) return
+      const value = (event.target as HTMLInputElement).value as string
+      const element = document.querySelector(`[data-invoice-${attribute}]`) as HTMLElement
+      element.textContent = value.toString()
+    }
+  });
+</script>
