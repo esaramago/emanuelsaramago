@@ -9,9 +9,15 @@ main {
   gap: 20rem;
   margin-block-start: 6rem;
   min-height: 40vh;
-}
-@media (max-width: 767px) {
-  main {
+  @media print {
+    margin-block-start: 0;
+  }
+  @media (max-width: 767px) {
     gap: 16rem;
   }
+  
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
 }

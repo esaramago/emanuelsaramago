@@ -13,6 +13,7 @@ const dataset = PUBLIC_SANITY_DATASET
 
 import sanity from '@sanity/astro'
 import react from '@astrojs/react'
+import vercel from '@astrojs/vercel'
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,8 +24,9 @@ export default defineConfig({
       dataset,
       studioBasePath: '/admin',
       useCdn: false,
-      apiVersion: '2025-11-13' // Set to date of setup to use the latest API version
+      apiVersion: '2025-11-17' // Set to date of setup to use the latest API version
     }),
     react() // Required for Sanity Studio
-  ]
+  ],
+  adapter: vercel()
 })

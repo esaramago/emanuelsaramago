@@ -6,3 +6,35 @@
 .l-stack--s {
   gap: var(--sl-spacing-small);
 }
+
+es-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sl-spacing-large);
+
+  &[direction="row"] {
+    flex-direction: row;
+  }
+
+  &[gap="l"] {
+    gap: var(--sl-spacing-large);
+  }
+  &[gap="s"] {
+    gap: var(--sl-spacing-small);
+  }
+  &[gap="xs"] {
+    gap: var(--sl-spacing-x-small);
+  }
+
+  > [grow="1"] {
+    flex: 1;
+  }
+
+  &[break="tablet"] {
+    @media (max-width: 1024px) {
+      flex-direction: column;
+    }
+  }
+
+}
+

@@ -11,6 +11,7 @@ interface CardProps {
 	template?: TemplateType
 	gap?: Spacing
 	padding?: Spacing
+	className?: string
 }
 
 const {
@@ -22,10 +23,11 @@ const {
 	template = 'custom',
 	gap = 'large',
 	padding = 'large',
+	className = '',
 } = Astro.props as CardProps
 ---
 
-<div class={`card card--${template}`} style={{
+<div class={`card card--${template} ${className ? className : ''}`} style={{
 	'--gap': `var(--sl-spacing-${gap})`,
 	'--padding': `var(--sl-spacing-${padding})`}}
 >
@@ -101,6 +103,14 @@ const {
 	}
 	.card__img {
 		padding: 0;
+	}
+}
+
+@media print {
+	.card {
+		box-shadow: none;
+		padding: 0;
+		border-radius: 0;
 	}
 }
 </style>

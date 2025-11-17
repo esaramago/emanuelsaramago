@@ -4,11 +4,13 @@ interface ButtonProps {
   variant?: 'light'
   href?: string
   type?: 'button' | 'submit' | 'reset'
+  id?: string
 }
 const {
   size,
   variant,
   href,
+  id,
   type = 'button'
 } = Astro.props as ButtonProps
 ---
@@ -17,6 +19,7 @@ const {
   href ? (
     <a
       href={href}
+      id={id}
       class={`
         button
         ${size && `button--${size}`}
@@ -28,6 +31,7 @@ const {
   ) : (
     <button
       type={type}
+      id={id}
       class={`button ${size && `button--${size}`} ${variant && `button--${variant}`}`}
     >
       <slot />
@@ -43,7 +47,7 @@ const {
     gap: var(--sl-spacing-x-small);
     border: .3rem solid;
     border-radius: var(--sl-spacing-x-small);
-    height: var(--form-height-m);
+    height: var(--form-height-l);
     padding: var(--sl-spacing-x-small) var(--sl-spacing-medium);
     box-sizing: border-box;
     font-size: 2.6rem;
