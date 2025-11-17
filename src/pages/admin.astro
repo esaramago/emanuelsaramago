@@ -77,7 +77,7 @@ import Button from '@/components/Button.astro'
               step="1"
               >
           </div>
-          <Button type="submit" id="printButton" type="button">Imprimir</Button>
+          <Button type="submit">Imprimir</Button>
           </div>
         </form>
       </Card>
@@ -331,7 +331,8 @@ import Button from '@/components/Button.astro'
     const invoiceForm = document.querySelector('#invoiceForm') as HTMLFormElement
     setDefaultValues()
 
-    document.getElementById('printButton').addEventListener('click', () => {
+    invoiceForm.addEventListener('submit', (e) => {
+      e.preventDefault()
       window.print()
     })
 
@@ -339,10 +340,13 @@ import Button from '@/components/Button.astro'
       const today = new Date()
       const date = formatDate(today)
       const month = getLastMonth(today)
+      const number = getNextInvoiceNumber()
       const dateInput = document.getElementById('date') as HTMLInputElement
       const monthInput = document.getElementById('month') as HTMLInputElement
+      const numberInput = document.getElementById('number') as HTMLInputElement
       dateInput.value = date
       monthInput.value = month
+      numberInput.value = number
     }
 
     const inputFields = invoiceForm.querySelectorAll('input, select') as NodeListOf<HTMLInputElement | HTMLSelectElement>
@@ -421,6 +425,16 @@ import Button from '@/components/Button.astro'
       const dateParts = date.toISOString().split('-')
       const formattedMonth = `${dateParts[0]}-${Number(dateParts[1]) - 1}`
       return formattedMonth
+    }
+
+    function getNextInvoiceNumber(): string {
+      
+      // october 2025 is the first invoice number
+      // calculate the number of months between today and November 2025 (first invoice printed date)
+      const today = new Date()
+      const firstInvoiceDate = new Date('2025-11-17')
+      const monthsBetween = (today.getFullYear() - firstInvoiceDate.getFullYear()) * 12 + (today.getMonth() - firstInvoiceDate.getMonth())
+      return (monthsBetween + 1).toString()
     }
 
   });
