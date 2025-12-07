@@ -38,7 +38,13 @@ const pages = [
 <style>
 ul {
   display: flex;
-  gap: var(--sl-spacing-medium);
+  gap: var(--sl-spacing-large);
+  @media (max-width: 1000px) {
+    gap: var(--sl-spacing-small);
+  }
+  @media (max-width: 700px) {
+    gap: var(--sl-spacing-medium);
+  }
 }
 a {
   font-size: 1.8rem;
