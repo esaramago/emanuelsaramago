@@ -8,7 +8,7 @@ import { getTechnologies, getTechnologyTypes } from '@/api'
 const technologies = await getTechnologies()
 const technologyTypes = await getTechnologyTypes()
 
-const groupedTechnologies = []
+const groupedTechnologies: any[] = []
 
 technologyTypes.forEach((type) => {
   const techs = technologies.filter((tech) => tech.type._ref === type._id)

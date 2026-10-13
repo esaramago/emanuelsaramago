@@ -10,7 +10,7 @@ const currentPath = pathname.replace('/' + langPath, '').replaceAll('/', '') // 
 
 function getURL(lang: string) {
   const langPath = lang === defaultLang ? '' : '/' + lang
-  return `${langPath}/${pageTranslation[currentPath] || ''}`
+  return `${langPath}/${(pageTranslation as Record<string, string>)[currentPath] || ''}`
 }
 ---
 <ul>

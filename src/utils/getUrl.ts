@@ -3,5 +3,5 @@ import { pagePath } from '@/pages'
 
 export default function getUrl(path: string, lang: string) {
   const langPath = lang === defaultLang ? '' : '/' + lang
-  return `${langPath}/${pagePath[path][lang]}`
+  return `${langPath}/${(pagePath as Record<string, Record<string, string>>)[path]?.[lang] || ''}`
 }

@@ -22,7 +22,7 @@ const t: any = useTranslations(lang)
         <Card
           role={project.role}
           title={project.title}
-          imageSrc={getImageUrl(project.image.asset._ref)}
+          imageSrc={getImageUrl(project.image?.asset?._ref || '')}
           template="default"
         >
           <p set:html={project.description}></p>
