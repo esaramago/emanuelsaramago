@@ -1,0 +1,13 @@
+{
+  "title": "InnovTourism",
+  "featured": true,
+  "date": "2025-06-01",
+  "image": "/media/projects/innov-tourism/image.jpg",
+  "isImageScrollable": false,
+  "description": "Site para um Digital Innovation Hub na área do turismo. Inclui registo de utilizadores e conteúdos privados. Desenvolvido com Wordpress e React.",
+  "url": "https://innovtourism.pt",
+  "role": [
+    "development",
+    "design"
+  ]
+}

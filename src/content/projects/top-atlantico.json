@@ -1,0 +1,12 @@
+{
+  "title": "TopAtlântico",
+  "featured": true,
+  "date": "2026-04-01",
+  "image": "/media/projects/top-atlantico/image.webp",
+  "isImageScrollable": true,
+  "description": "Implementação do redesign do site TopAtlântico, utilizando webcomponents.",
+  "url": "https://www.topatlantico.pt",
+  "role": [
+    "development"
+  ]
+}

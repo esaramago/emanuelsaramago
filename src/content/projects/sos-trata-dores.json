@@ -1,8 +1,7 @@
 {
   "title": "SOS Trata Dores",
-  "featured": true,
+  "featured": false,
   "date": "2024-01-01",
-  "image": "/media/projects/sostratadores.jpg",
   "isImageScrollable": false,
   "description": "Um site de fisioterapia ao domicílio, feito com Wordpress.<br>Fiz o logótipo, o design do site e o desenvolvimento.",
   "url": "https://sostratadores.pt",
