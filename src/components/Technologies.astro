@@ -32,7 +32,7 @@ technologyTypes.forEach((type) => {
   {
     groupedTechnologies.map((type: any) => (
       <li>
-        <Card gap="medium">
+        <Card gap="m">
           <div class="technology__header">
             <CardHeading>{ type.title }</CardHeading>
             <p>{ type.description }</p>
@@ -62,14 +62,14 @@ technologyTypes.forEach((type) => {
 <style>
 .technologies {
   display: flex;
-  gap: var(--sl-spacing-medium);
+  gap: var(--spacing-m);
   flex-wrap: wrap;
   justify-content: center;
 }
 .technology__header {
   max-width: 18rem;
-  padding-inline-end: var(--sl-spacing-small);
-  border-inline-end: 1px solid var(--sl-color-primary-500);
+  padding-inline-end: var(--spacing-s);
+  border-inline-end: 1px solid var(--color-primary-500);
 }
 .technology__logo {
   max-width: 5rem;
@@ -89,7 +89,7 @@ technologyTypes.forEach((type) => {
   }
   .technology__header {
     max-width: 25rem;
-    padding-inline-end: var(--sl-spacing-medium);
+    padding-inline-end: var(--spacing-m);
   }
 }
 @media (max-width: 980px) {
@@ -98,8 +98,8 @@ technologyTypes.forEach((type) => {
     max-width: none;
     padding-inline-end: 0;
     border-inline-end: none;
-    padding-block-end: var(--sl-spacing-small);
-    border-block-end: 1px solid var(--sl-color-primary-500);
+    padding-block-end: var(--spacing-s);
+    border-block-end: 1px solid var(--color-primary-500);
   }
 }
 @media (max-width: 768px) {

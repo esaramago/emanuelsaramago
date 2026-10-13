@@ -37,11 +37,11 @@ const currentPath = pathname.slice(1) // remove the first "/"
   display: grid;
   align-items: center;
   justify-content: space-between;
-  gap: var(--sl-spacing-large);
-  padding: var(--sl-spacing-medium);
+  gap: var(--spacing-l);
+  padding: var(--spacing-m);
   color: #FFF;
   fill: #FFF;
-  background-color: var(--sl-color-primary-500);
+  background-color: var(--color-primary-500);
 
   grid-template-areas: "logo navigation language";
   grid-template-columns: repeat(3, 1fr);
@@ -52,7 +52,7 @@ const currentPath = pathname.slice(1) // remove the first "/"
 .logo > a {
   display: inline-flex;
   align-items: center;
-  gap: var(--sl-spacing-small);
+  gap: var(--spacing-s);
   text-decoration: none;
 }
 .logo__text {
@@ -81,7 +81,7 @@ const currentPath = pathname.slice(1) // remove the first "/"
 }
 @media (max-width: 700px) {
   .header {
-    gap: var(--sl-spacing-medium);
+    gap: var(--spacing-m);
     grid-template-areas: "logo language" "navigation navigation";
     grid-template-columns: 1fr auto;
   }

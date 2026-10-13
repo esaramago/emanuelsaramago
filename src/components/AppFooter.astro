@@ -16,8 +16,8 @@ const t = useTranslations(Astro.currentLocale)
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--sl-spacing-medium);
-  padding: var(--sl-spacing-large);
+  gap: var(--spacing-m);
+  padding: var(--spacing-l);
   margin-block-start: 18rem;
   background-color: rgba(0, 0, 0, .7);
   font-size: 1.5rem;
@@ -29,7 +29,7 @@ const t = useTranslations(Astro.currentLocale)
 @media (max-width: 767px) {
   .footer {
     flex-direction: column-reverse;
-    padding: var(--sl-spacing-large) var(--sl-spacing-medium);
+    padding: var(--spacing-l) var(--spacing-m);
   }
 }
 </style>
