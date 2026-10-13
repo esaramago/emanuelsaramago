@@ -40,9 +40,9 @@ export const homePT = {
       },
     ]
   },
-  work: {
-    title: 'Trabalhos em destaque',
-    button: 'Mais trabalhos',
+  projects: {
+    title: 'Projetos em destaque',
+    button: 'Mais projetos',
   },
   pricing: {
     title: 'Planos à sua medida',
@@ -142,9 +142,9 @@ export const homeEN = {
       },
     ]
   },
-  work: {
-    title: 'My featured work',
-    button: 'More of my work',
+  projects: {
+    title: 'My featured projects',
+    button: 'More projects',
   },
   pricing: {
     title: 'Plans tailored to you',

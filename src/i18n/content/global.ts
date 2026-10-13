@@ -3,8 +3,7 @@ export const globalPT = {
   description: 'Página pessoal de Emanuel Saramago. UI Design e Frontend-Development',
   navigation: {
     home: 'Início',
-    work: 'Trabalho',
-    meeting: 'Reunião',
+    projects: 'Projetos'
   },
   interested: 'Interessado?',
   contactme: 'Contacte-me',
@@ -22,8 +21,7 @@ export const globalEN = {
   description: 'Personal page of Emanuel Saramago. UI Design and Frontend-Development',
   navigation: {
     home: 'Home',
-    work: 'Work',
-    meeting: 'Meeting',
+    projects: 'Projects'
   },
   interested: 'Interested?',
   andmore: 'And more...',

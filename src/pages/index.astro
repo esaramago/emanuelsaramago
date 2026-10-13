@@ -44,9 +44,9 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
 
   </section>
 
-  <!-- Work -->
+  <!-- Pojects -->
   <section class="l-container">
-    <h2>{ t('home.work.title') }</h2>
+    <h2>{ t('home.projects.title') }</h2>
     <div class="l-cards l-cards--wide">
 
       {featuredProjects.map((project: Project) => (
@@ -68,7 +68,7 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
       ))}
     </div>
 
-    <Button href={getUrl('work', lang)}>{t('home.work.button')}</Button>
+    <Button href={getUrl('projects', lang)}>{t('home.projects.button')}</Button>
   </section>
 
   <!-- Pricing -->

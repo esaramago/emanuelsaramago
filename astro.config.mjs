@@ -26,8 +26,7 @@ export default defineConfig({
       hooks: {
         'astro:config:setup': ({ injectRoute }) => {
           injectRoute({ pattern: '/en', entrypoint: './src/pages/index.astro' })
-          injectRoute({ pattern: '/en/work', entrypoint: './src/pages/trabalho.astro' })
-          injectRoute({ pattern: '/en/meeting', entrypoint: './src/pages/reuniao.astro' })
+          injectRoute({ pattern: '/en/projects', entrypoint: './src/pages/projetos.astro' })
         },
       },
     },

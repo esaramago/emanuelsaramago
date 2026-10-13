@@ -1,7 +1,7 @@
-export const workPT = {
-  title: 'Trabalho',
+export const projectsPT = {
+  title: 'Projetos',
   description: 'Algum do meu trabalho',
-  work: [
+  projects: [
     {
       title: 'Associação Vale Grande',
       description: 'Atualização do site de uma associação cultural, feito com Wordpress.<br>Fiz algumas melhorias de design e à edição de conteúdos',
@@ -32,10 +32,10 @@ export const workPT = {
     },
   ]
 }
-export const workEN = {
-  title: 'Work',
+export const projectsEN = {
+  title: 'Projects',
   description: 'Some of my work',
-  work: [
+  projects: [
     {
       title: 'Associação Vale Grande',
       description: 'Update of a cultural association website, made with Wordpress.<br>I made some design improvements and content editing',

@@ -1,6 +1,6 @@
 import { globalPT, globalEN } from './content/global'
 import { homePT, homeEN } from './content/home'
-import { workPT, workEN } from './content/work'
+import { projectsPT, projectsEN } from './content/projects'
 
 export const languages = {
   pt: 'Português',
@@ -18,8 +18,8 @@ export const ui = {
     home: {
       ...homePT,
     },
-    work: {
-      ...workPT,
+    projects: {
+      ...projectsPT,
     },
   },
   en: {
@@ -27,8 +27,8 @@ export const ui = {
     home: {
       ...homeEN,
     },
-    work: {
-      ...workEN,
+    projects: {
+      ...projectsEN,
     },
   },
 } as const
