@@ -6,7 +6,8 @@ import Hero from '../components/Hero.astro'
 import ButtonEmail from '../components/ButtonEmail.astro'
 import Button from '../components/Button.astro'
 
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
+import { defaultLang } from '../i18n/ui'
 import { getProjects, type Project } from '@/api'
 import c from '../content'
 
@@ -17,8 +18,8 @@ import ListItem from '@/components/ListItem.astro'
 import CardPricing from '@/components/CardPricing.astro'
 import Technologies from '@/components/Technologies.astro'
 
-const lang = getLangFromUrl(Astro.url)
-const t: any = useTranslations(lang)
+const lang = Astro.currentLocale ?? defaultLang
+const t = useTranslations(lang)
 
 const projects = await getProjects()
 const featuredProjects = projects.filter((project: Project) => project.featured)
@@ -27,11 +28,11 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
 <Layout>
   <Hero />
   <section class="l-container l-container--wide">
-    <h2 class="c-h2">{ t('home').services.title }</h2>
+    <h2 class="c-h2">{ t('home.services.title') }</h2>
 
     <div class="l-cards">
       {
-        t('home').services.items.map((service: any) => (
+        t('home.services.items').map((service) => (
           <Card tag={service.tag} title={service.title} template="default">
             <p>{service.description}</p>
           </Card>
@@ -45,7 +46,7 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
 
   <!-- Work -->
   <section class="l-container">
-    <h2 class="c-h2">{ t('home').work.title }</h2>
+    <h2 class="c-h2">{ t('home.work.title') }</h2>
     <div class="l-cards l-cards--wide">
 
       {featuredProjects.map((project: Project) => (
@@ -67,16 +68,16 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
       ))}
     </div>
 
-    <Button href={getUrl('work', lang)}>{t('home').work.button}</Button>
+    <Button href={getUrl('work', lang)}>{t('home.work.button')}</Button>
   </section>
 
   <!-- Pricing -->
   <section class="l-container">
-    <h2 class="c-h2">{ t('home').pricing.title }</h2>
+    <h2 class="c-h2">{ t('home.pricing.title') }</h2>
     <div class="l-cards">
 
       {
-        t('home').pricing.levels.map((level: any) => (
+        t('home.pricing.levels').map((level) => (
           <CardPricing
             title={level.title}
             subTitle={level.description}
@@ -84,7 +85,7 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
           >
             <List>
               {
-                level.features.map((feature: any) => (
+                level.features.map((feature) => (
                   <ListItem>{feature}</ListItem>
                 ))
               }
@@ -97,7 +98,7 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
 
   <!-- Brands -->
   <section class="l-container l-container--wide">
-    <h2 class="c-h2">{ t('home').brands.title }</h2>
+    <h2 class="c-h2">{ t('home.brands.title') }</h2>
     <ul class="l-row l-row--wrap">
       {
         c.brands.map((brand) => (
@@ -114,7 +115,7 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
 
   <!-- Technologies -->
   <section class="l-container l-container--wide">
-    <h2 class="c-h2">{ t('home').technologies.title }</h2>
+    <h2 class="c-h2">{ t('home.technologies.title') }</h2>
 
     <Technologies />
   </section>

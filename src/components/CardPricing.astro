@@ -1,17 +1,16 @@
 ---
 
 import Card from './Card.astro'
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import Price from './Price.astro'
 import ButtonEmail from './ButtonEmail.astro'
 
-const lang = getLangFromUrl(Astro.url)
-const t: any = useTranslations(lang)
+const t = useTranslations(Astro.currentLocale)
 
 interface Props {
 	title: string
 	subTitle: string
-  price: number
+  price?: number
 }
 
 
@@ -37,7 +36,7 @@ const {
       price ? (
         <Price value={ price } isFrom={true} />
       ) : (
-      <span>{t('home').pricing.customPrice}</span>
+      <span>{t('home.pricing.customPrice')}</span>
       )
     }
     <ButtonEmail

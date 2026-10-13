@@ -1,6 +1,8 @@
 export const pageTranslation = {
   trabalho: 'work',
   work: 'trabalho',
+  reuniao: 'meeting',
+  meeting: 'reuniao',
 }
 export const pagePath = {
   work: {
@@ -8,7 +10,7 @@ export const pagePath = {
     en: 'work',
   },
   meeting: {
-    pt: 'reunião',
+    pt: 'reuniao',
     en: 'meeting',
   },
   admin: {

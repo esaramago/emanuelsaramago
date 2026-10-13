@@ -1,9 +1,8 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import Social from './Social.astro'
 
-const currentLang = getLangFromUrl(Astro.url)
-const t = useTranslations(currentLang)
+const t = useTranslations(Astro.currentLocale)
 ---
 
 <footer class="footer is-hidden-print">

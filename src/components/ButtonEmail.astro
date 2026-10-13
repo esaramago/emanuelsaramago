@@ -1,8 +1,8 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import Button from './Button.astro'
-const lang = getLangFromUrl(Astro.url)
-const t: any = useTranslations(lang)
+
+const t = useTranslations(Astro.currentLocale)
 
 interface ButtonEmailProps {
   size?: 'xs' | 'sm',

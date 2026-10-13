@@ -18,6 +18,13 @@ import vercel from '@astrojs/vercel'
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
+  i18n: {
+    defaultLocale: 'pt',
+    locales: ['pt', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   integrations: [
     sanity({
       projectId,

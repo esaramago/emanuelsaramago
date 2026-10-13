@@ -1,22 +1,25 @@
 ---
-import { getLangFromUrl } from '../i18n/utils'
-import { languages, defaultLang } from '../i18n/ui'
-import {pageTranslation} from '@/pages'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { languages, defaultLang, type SupportedLanguage } from '../i18n/ui'
+import { pageTranslation } from '@/pages'
 
-const pathname = new URL(Astro.request.url).pathname
-const currentLang = getLangFromUrl(Astro.url)
-const langPath = currentLang === defaultLang ? '' : currentLang
-const currentPath = pathname.replace('/' + langPath, '').replaceAll('/', '') // remove the first "/" and the lang path
+const currentLang = (Astro.currentLocale ?? defaultLang) as SupportedLanguage
+const pathname = Astro.url.pathname
 
-function getURL(lang: string) {
-  const langPath = lang === defaultLang ? '' : '/' + lang
-  return `${langPath}/${(pageTranslation as Record<string, string>)[currentPath] || ''}`
+// Remove locale prefix to get the clean slug of current page
+const langPrefix = currentLang === defaultLang ? '' : `/${currentLang}`
+const cleanPath = pathname.replace(langPrefix, '').replaceAll('/', '')
+
+function getURL(targetLang: string) {
+  if (targetLang === currentLang) return pathname
+  const translatedPath = (pageTranslation as Record<string, string>)[cleanPath] || cleanPath
+  return getRelativeLocaleUrl(targetLang, translatedPath)
 }
 ---
 <ul>
   {Object.entries(languages).map(([lang]) => (
     <li>
-      <a href={getURL(lang)} class={lang === currentLang ? `active` : ''}>{lang}</a>
+      <a href={getURL(lang)} class={lang === currentLang ? 'active' : ''}>{lang}</a>
     </li>
   ))}
 </ul>

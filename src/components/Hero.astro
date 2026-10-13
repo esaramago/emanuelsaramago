@@ -1,22 +1,19 @@
 ---
 import Social from '../components/Social.astro'
 import ButtonEmail from '../components/ButtonEmail.astro'
+import { useTranslations } from '../i18n/utils'
 
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
-
-const lang = getLangFromUrl(Astro.url)
-const t: any = useTranslations(lang)
-
+const t = useTranslations(Astro.currentLocale)
 ---
 
 <div class="hero">
   <div class="hero__container l-container">
     <span class="hero__1">Olá!</span>
     <h2>
-      <span class="hero__2">{ t('home').hero.heading1 }</span>
-      <span class="hero__3">{ t('home').hero.heading2 }</span>
+      <span class="hero__2">{ t('home.hero.heading1') }</span>
+      <span class="hero__3">{ t('home.hero.heading2') }</span>
     </h2>
-    <p>{ t('home').hero.text1 }<br>{ t('home').hero.text2 }</p>
+    <p>{ t('home.hero.text1') }<br>{ t('home.hero.text2') }</p>
     <div>
       <ButtonEmail variant="light" />
     </div>

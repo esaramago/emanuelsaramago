@@ -5,9 +5,12 @@ import { workPT, workEN } from './content/work'
 export const languages = {
   pt: 'Português',
   en: 'English',
-}
+} as const
 
-export const defaultLang = 'pt'
+export const defaultLang = 'pt' as const
+
+export type SupportedLanguage = keyof typeof languages
+export type TranslationSchema = (typeof ui)[typeof defaultLang]
 
 export const ui = {
   pt: {
