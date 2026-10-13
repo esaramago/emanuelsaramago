@@ -1,10 +1,26 @@
-.c-h2 {
+h1,
+[data-appearance="h1"] {
+}
+h2,
+[data-appearance="h2"] {
   font-size: 5rem;
   font-weight: 700;
   line-height: 1;
 }
+legend,
+h3,
+[data-appearance="h3"] {
+  font-size: 2.6rem;
+  line-height: 1.2;
+}
+[data-appearance="p"] {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
 @media (max-width: 767px) {
-  .c-h2 {
+  h2,
+  [data-appearance="h2"] {
     font-size: 3rem;
   }
 }
