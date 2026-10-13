@@ -6,7 +6,7 @@
   "author": "Emanuel Saramago <emanuel.saramago@gmail.com> (http://emanuelsaramago.com/)",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "node ./dist/server/entry.mjs",
     "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
     "astro": "astro"

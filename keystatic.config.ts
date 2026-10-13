@@ -1,9 +1,18 @@
 import { config, fields, collection } from '@keystatic/core'
 
 export default config({
-  storage: {
-    kind: 'local',
-  },
+  storage:
+    process.env.NODE_ENV === 'production'
+      ? {
+          kind: 'github',
+          repo: {
+            owner: 'esaramago',
+            name: 'emanuelsaramago',
+          },
+        }
+      : {
+          kind: 'local',
+        },
   collections: {
     projects: collection({
       label: 'Projetos',
