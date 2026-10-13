@@ -59,7 +59,7 @@ export const homePT = {
           'Painel de administração',
           'Ferramentas SEO',
         ],
-        price: 800,
+        price: 1000,
       },
       {
         title: 'Avançado',
@@ -73,7 +73,7 @@ export const homePT = {
           'Painel de administração',
           'Ferramentas SEO',
         ],
-        price: 1200,
+        price: 2000,
       },
       {
         title: 'Profissional',
@@ -154,7 +154,7 @@ export const homeEN = {
         title: 'Base',
         description: 'Website with the essentials',
         features: [
-          'Custom template',
+          'Design template',
           'Unlimited pages',
           'Contact form',
           'Domain .com or .pt (1 year free)',
@@ -162,7 +162,7 @@ export const homeEN = {
           'Administration panel',
           'SEO tools',
         ],
-        price: 300,
+        price: 1000,
       },
       {
         title: 'Advanced',
@@ -176,7 +176,7 @@ export const homeEN = {
           'Administration panel',
           'SEO tools',
         ],
-        price: 1500,
+        price: 2000,
       },
       {
         title: 'Professional',
