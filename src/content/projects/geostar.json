@@ -1,0 +1,12 @@
+{
+  "title": "Geostar",
+  "featured": false,
+  "date": "2023-01-01",
+  "image": "/media/projects/geostar.jpg",
+  "isImageScrollable": true,
+  "description": "Site da conhecida agência de viagens.<br>Fiquei responsável pelo código frontend",
+  "url": "",
+  "role": [
+    "development"
+  ]
+}

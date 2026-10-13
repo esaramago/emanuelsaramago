@@ -1,28 +1,27 @@
 ---
 import Card from './Card.astro'
 import CardHeading from './CardHeading.astro'
-import getImageUrl from '@/utils/getImageUrl'
+import { actions } from 'astro:actions'
+import type { Technology, TechnologyType } from '@/types'
 
-import { getTechnologies, getTechnologyTypes } from '@/api'
-
-const technologies = await getTechnologies()
-const technologyTypes = await getTechnologyTypes()
+const { data: technologies = [] } = await Astro.callAction(actions.getTechnologies, {})
+const { data: technologyTypes = [] } = await Astro.callAction(actions.getTechnologyTypes, {})
 
 const groupedTechnologies: any[] = []
 
-technologyTypes.forEach((type) => {
-  const techs = technologies.filter((tech) => tech.type._ref === type._id)
-  const techs2 = techs.map(tech => ({
+technologyTypes.forEach((type: TechnologyType) => {
+  const techs = technologies.filter((tech: Technology) => tech.type === type.slug)
+  const techs2 = techs.map((tech: Technology) => ({
     name: tech.name,
     slug: tech.slug,
     website: tech.website,
-    logo: tech.logo.asset._ref,
+    logo: tech.logo,
   }))
 
   groupedTechnologies.push({
     title: type.title,
     description: type.description,
-    slug: type.slug.current,
+    slug: type.slug,
     technologies: techs2
   })
 })
@@ -32,7 +31,7 @@ technologyTypes.forEach((type) => {
   {
     groupedTechnologies.map((type: any) => (
       <li>
-        <Card gap="m">
+        <Card gap="medium">
           <div class="technology__header">
             <CardHeading>{ type.title }</CardHeading>
             <p>{ type.description }</p>
@@ -42,7 +41,7 @@ technologyTypes.forEach((type) => {
               type.technologies.map((tech: any) => (
                 <li>
                   <a href={tech.website} target="_blank">
-                    <img class="technology__logo" src={getImageUrl(tech.logo)} alt={tech.name} title={tech.name} loading="lazy" />
+                    <img class="technology__logo" src={tech.logo} alt={tech.name} title={tech.name} loading="lazy" />
                   </a>
                 </li>
               ))
@@ -69,7 +68,7 @@ technologyTypes.forEach((type) => {
 .technology__header {
   max-width: 18rem;
   padding-inline-end: var(--spacing-s);
-  border-inline-end: 1px solid var(--color-primary-500);
+  border-inline-end: 1px solid var(--color-primary-50);
 }
 .technology__logo {
   max-width: 5rem;
@@ -99,7 +98,7 @@ technologyTypes.forEach((type) => {
     padding-inline-end: 0;
     border-inline-end: none;
     padding-block-end: var(--spacing-s);
-    border-block-end: 1px solid var(--color-primary-500);
+    border-block-end: 1px solid var(--color-primary-50);
   }
 }
 @media (max-width: 768px) {

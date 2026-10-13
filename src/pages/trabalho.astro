@@ -1,19 +1,19 @@
 ---
 import Layout from '@/layouts/layout.astro'
 import Card from '@/components/Card.astro'
-import getImageUrl from '@/utils/getImageUrl'
-import { getProjects, type Project } from '@/api'
+import { actions } from 'astro:actions'
+import type { Project } from '@/types'
 import ButtonEmail from '@/components/ButtonEmail.astro'
 import { useTranslations } from '../i18n/utils'
 
-const projects = await getProjects()
+const { data: projects = [] } = await Astro.callAction(actions.getProjects, {})
 const t = useTranslations(Astro.currentLocale)
 ---
 
 <Layout>
   <div class="l-container">
     <div class="l-stack l-stack--small">
-      <h1 class="c-h2 u-text-center">{t('work.title')}</h1>
+      <h1 data-appearance="h2" class="u-text-center">{t('work.title')}</h1>
       <p class="u-text-center">{t('work.description')}</p>
     </div>
     <div class="l-cards l-cards--wide">
@@ -22,7 +22,7 @@ const t = useTranslations(Astro.currentLocale)
         <Card
           role={project.role}
           title={project.title}
-          imageSrc={getImageUrl(project.image?.asset?._ref || '')}
+          imageSrc={project.image || undefined}
           template="default"
         >
           <p set:html={project.description}></p>
@@ -38,7 +38,7 @@ const t = useTranslations(Astro.currentLocale)
     </div>
   </div>
   <section class="l-container">
-    <h2 class="c-h2">{ t('interested') }</h2>
+    <h2>{ t('interested') }</h2>
     <div>
       <ButtonEmail />
     </div>

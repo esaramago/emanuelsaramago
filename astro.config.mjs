@@ -1,65 +1,35 @@
-// Loading environment variables from .env files
-// https://docs.astro.build/en/guides/configuring-astro/#environment-variables
-import { loadEnv } from 'vite'
-const {
-  PUBLIC_SANITY_PROJECT_ID,
-  PUBLIC_SANITY_DATASET,
-} = loadEnv(import.meta.env.MODE, process.cwd(), '')
-import { defineConfig, fontProviders } from 'astro/config'
+import { defineConfig, fontProviders } from "astro/config"
+import react from "@astrojs/react"
+import keystatic from "@keystatic/astro"
+import vercel from "@astrojs/vercel"
 
-// Different environments use different variables
-const projectId = PUBLIC_SANITY_PROJECT_ID
-const dataset = PUBLIC_SANITY_DATASET
-
-import sanity from '@sanity/astro'
-import react from '@astrojs/react'
-import vercel from '@astrojs/vercel'
-
-// https://astro.build/config
 export default defineConfig({
-  output: 'static',
+  output: "static",
+  adapter: vercel(),
   i18n: {
-    defaultLocale: 'pt',
-    locales: ['pt', 'en'],
-    routing: {
-      prefixDefaultLocale: false,
-    },
+    defaultLocale: "pt",
+    locales: ["pt", "en"],
+    routing: { prefixDefaultLocale: false },
   },
   integrations: [
-    sanity({
-      projectId,
-      dataset,
-      studioBasePath: '/admin',
-      useCdn: false,
-      apiVersion: '2025-11-17' // Set to date of setup to use the latest API version
-    }),
-    react(), // Required for Sanity Studio
+    react(),
+    keystatic(),
     {
-      name: 'localized-routes',
+      name: "localized-routes",
       hooks: {
-        'astro:config:setup': ({ injectRoute }) => {
-          injectRoute({
-            pattern: '/en',
-            entrypoint: './src/pages/index.astro',
-          })
-          injectRoute({
-            pattern: '/en/work',
-            entrypoint: './src/pages/trabalho.astro',
-          })
-          injectRoute({
-            pattern: '/en/meeting',
-            entrypoint: './src/pages/reuniao.astro',
-          })
+        "astro:config:setup": ({ injectRoute }) => {
+          injectRoute({ pattern: "/en", entrypoint: "./src/pages/index.astro" })
+          injectRoute({ pattern: "/en/work", entrypoint: "./src/pages/trabalho.astro" })
+          injectRoute({ pattern: "/en/meeting", entrypoint: "./src/pages/reuniao.astro" })
         },
       },
     },
   ],
-  adapter: vercel(),
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: 'Montserrat',
-      cssVariable: '--font-montserrat',
+      name: "Montserrat",
+      cssVariable: "--font-montserrat",
       weights: [400, 500, 700],
     }
   ]

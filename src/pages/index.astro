@@ -8,10 +8,10 @@ import Button from '../components/Button.astro'
 
 import { useTranslations } from '../i18n/utils'
 import { defaultLang } from '../i18n/ui'
-import { getProjects, type Project } from '@/api'
+import { actions } from 'astro:actions'
+import type { Project } from '@/types'
 import c from '../content'
 
-import getImageUrl from '@/utils/getImageUrl'
 import getUrl from '@/utils/getUrl'
 import List from '@/components/List.astro'
 import ListItem from '@/components/ListItem.astro'
@@ -21,14 +21,14 @@ import Technologies from '@/components/Technologies.astro'
 const lang = Astro.currentLocale ?? defaultLang
 const t = useTranslations(lang)
 
-const projects = await getProjects()
+const { data: projects = [] } = await Astro.callAction(actions.getProjects, {})
 const featuredProjects = projects.filter((project: Project) => project.featured)
 ---
 
 <Layout>
   <Hero />
   <section class="l-container l-container--wide">
-    <h2 class="c-h2">{ t('home.services.title') }</h2>
+    <h2>{ t('home.services.title') }</h2>
 
     <div class="l-cards">
       {
@@ -46,14 +46,14 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
 
   <!-- Work -->
   <section class="l-container">
-    <h2 class="c-h2">{ t('home.work.title') }</h2>
+    <h2>{ t('home.work.title') }</h2>
     <div class="l-cards l-cards--wide">
 
       {featuredProjects.map((project: Project) => (
         <Card
           role={project.role}
           title={project.title}
-          imageSrc={getImageUrl(project.image?.asset?._ref || '')}
+          imageSrc={project.image || undefined}
           template="default"
         >
           <p set:html={project.description}></p>
@@ -73,7 +73,7 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
 
   <!-- Pricing -->
   <section class="l-container">
-    <h2 class="c-h2">{ t('home.pricing.title') }</h2>
+    <h2>{ t('home.pricing.title') }</h2>
     <div class="l-cards">
 
       {
@@ -98,7 +98,7 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
 
   <!-- Brands -->
   <section class="l-container l-container--wide">
-    <h2 class="c-h2">{ t('home.brands.title') }</h2>
+    <h2>{ t('home.brands.title') }</h2>
     <ul class="l-row l-row--wrap">
       {
         c.brands.map((brand) => (
@@ -115,13 +115,13 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
 
   <!-- Technologies -->
   <section class="l-container l-container--wide">
-    <h2 class="c-h2">{ t('home.technologies.title') }</h2>
+    <h2>{ t('home.technologies.title') }</h2>
 
     <Technologies />
   </section>
 
   <section class="l-container">
-    <h2 class="c-h2">{ t('interested') }</h2>
+    <h2>{ t('interested') }</h2>
     <div>
       <ButtonEmail />
     </div>

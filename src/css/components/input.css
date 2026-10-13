@@ -1,5 +1,5 @@
 .c-input {
-    border: 2px solid var(--color-neutral-500);
+    border: 2px solid var(--color-neutral-50);
     padding-inline: var(--spacing-s);
     border-radius: var(--spacing-xs);
     height: var(--form-height-m);

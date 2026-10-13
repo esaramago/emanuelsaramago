@@ -3,5 +3,5 @@
     background-color: var(--color-neutral-0);
     padding-inline: var(--spacing-s);
     height: var(--form-height-m);
-    border: 2px solid var(--color-neutral-500);
+    border: 2px solid var(--color-neutral-50);
 }
