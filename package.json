@@ -1,10 +1,9 @@
 {
   "name": "portfolio-v2",
   "type": "module",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "license": "UNLICENSED",
   "author": "Emanuel Saramago <emanuel.saramago@gmail.com> (http://emanuelsaramago.com/)",
-  "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
