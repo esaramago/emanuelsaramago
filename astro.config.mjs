@@ -8,10 +8,9 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone',
   }),
+  site: 'https://emanuelsaramago.com',
   security: {
-    allowedDomains: [
-      { hostname: 'emanuelsaramago.com', protocol: 'https' },
-    ]
+    allowedDomains: [{}],
   },
   i18n: {
     defaultLocale: 'pt',
