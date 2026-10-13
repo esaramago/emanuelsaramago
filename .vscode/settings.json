@@ -2,8 +2,8 @@
   "search.exclude": {
     "node_modules": true,
     "dist": true,
-    ".vercel": true,
     ".astro": true,
-    "package-lock.json": true,
+    "pnpm-lock.yaml": true,
+    "pnpm-workspace.yaml": true,
   }
 }
