@@ -1,7 +1,7 @@
 ---
 import CardHeading from './CardHeading.astro'
 type TemplateType = 'default' | 'custom'
-type Spacing = 'medium' | 'large'
+type Spacing = 'm' | 'l'
 interface CardProps {
 	title: string
 	subTitle?: string
@@ -21,15 +21,15 @@ const {
 	imageSrc,
 	isImageScrollable,
 	template = 'custom',
-	gap = 'large',
-	padding = 'large',
+	gap = 'l',
+	padding = 'l',
 	className = '',
 } = Astro.props as CardProps
 ---
 
 <div class={`card card--${template} ${className ? className : ''}`} style={{
-	'--gap': `var(--sl-spacing-${gap})`,
-	'--padding': `var(--sl-spacing-${padding})`}}
+	'--gap': `var(--spacing-${gap})`,
+	'--padding': `var(--spacing-${padding})`}}
 >
 	{
 		template === 'default' ? (
@@ -68,20 +68,20 @@ const {
 	gap: var(--gap);
 }
 .card__subtitle {
-	margin-top: var(--sl-spacing-x-small);
+	margin-top: var(--spacing-xs);
 }
 .card__content {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	gap: var(--sl-spacing-medium);
+	gap: var(--spacing-m);
 }
 .card__img {
 	overflow: hidden;
 	flex: 2;
 	aspect-ratio: 16/9;
-	padding: var(--sl-spacing-x-small);
-	border: .5rem solid var(--sl-color-primary-200);
+	padding: var(--spacing-xs);
+	border: .5rem solid var(--color-primary-20);
 }
 .card__img.is-scrollable {
 	overflow: auto;
@@ -92,14 +92,14 @@ const {
 .card__role {
 	display: inline-block;
 	text-transform: uppercase;
-	font-size: var(--font-size-small);
+	font-size: var(--font-size-s);
 }
 
 @media (max-width: 980px) {
 	.card {
 		flex-direction: column;
-		padding: var(--sl-spacing-medium);
-		gap: var(--sl-spacing-medium);
+		padding: var(--spacing-m);
+		gap: var(--spacing-m);
 	}
 	.card__img {
 		padding: 0;

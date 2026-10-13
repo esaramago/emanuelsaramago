@@ -1,29 +1,29 @@
 .l-stack {
   display: flex;
   flex-direction: column;
-  gap: var(--sl-spacing-large);
+  gap: var(--spacing-l);
 }
 .l-stack--s {
-  gap: var(--sl-spacing-small);
+  gap: var(--spacing-s);
 }
 
 es-stack {
   display: flex;
   flex-direction: column;
-  gap: var(--sl-spacing-large);
+  gap: var(--spacing-l);
 
   &[direction="row"] {
     flex-direction: row;
   }
 
   &[gap="l"] {
-    gap: var(--sl-spacing-large);
+    gap: var(--spacing-l);
   }
   &[gap="s"] {
-    gap: var(--sl-spacing-small);
+    gap: var(--spacing-s);
   }
   &[gap="xs"] {
-    gap: var(--sl-spacing-x-small);
+    gap: var(--spacing-xs);
   }
 
   > [grow="1"] {

@@ -179,7 +179,7 @@ import Button from '@/components/Button.astro'
         </div>
       </Card>
     </es-stack>
-  </div>
+  </es-stack>
 </Layout>
 
 <style scoped>
@@ -188,7 +188,7 @@ import Button from '@/components/Button.astro'
   .invoice-container {
     display: flex;
     flex-direction: column;
-    gap: var(--sl-spacing-medium);
+    gap: var(--spacing-m);
   }
 
   .invoice {
@@ -201,7 +201,7 @@ import Button from '@/components/Button.astro'
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: var(--sl-spacing-large);
+    gap: var(--spacing-l);
     font-size: 1.4rem;
     line-height: 1.6;
   }
@@ -210,7 +210,7 @@ import Button from '@/components/Button.astro'
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: var(--sl-spacing-large);
+    margin-bottom: var(--spacing-l);
   }
 
   .invoice__title {
@@ -230,12 +230,12 @@ import Button from '@/components/Button.astro'
   .invoice__from,
   .invoice__billed-to,
   .invoice__payment {
-    margin-bottom: var(--sl-spacing-medium);
+    margin-bottom: var(--spacing-m);
   }
 
   .invoice__section-label {
     font-weight: 600;
-    margin-bottom: var(--sl-spacing-x-small);
+    margin-bottom: var(--spacing-xs);
     font-size: 1.4rem;
   }
 
@@ -256,7 +256,7 @@ import Button from '@/components/Button.astro'
   }
 
   th {
-    padding: var(--sl-spacing-small);
+    padding: var(--spacing-s);
     text-align: end;
     font-weight: 600;
     font-size: 1.4rem;
@@ -269,7 +269,7 @@ import Button from '@/components/Button.astro'
   }
 
   td {
-    padding: var(--sl-spacing-small);
+    padding: var(--spacing-s);
     font-size: 1.4rem;
     border-bottom: 1px solid #eee;
     white-space: nowrap;
@@ -284,7 +284,7 @@ import Button from '@/components/Button.astro'
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: var(--sl-spacing-x-small);
+    gap: var(--spacing-xs);
     margin-left: auto;
     margin-inline-end: 1rem;
     width: fit-content;
@@ -293,7 +293,7 @@ import Button from '@/components/Button.astro'
   .invoice__summary-row {
     display: flex;
     justify-content: space-between;
-    gap: var(--sl-spacing-medium);
+    gap: var(--spacing-m);
     width: 200px;
     font-size: 1.4rem;
   }
@@ -301,15 +301,15 @@ import Button from '@/components/Button.astro'
   .invoice__summary-row--total {
     font-weight: 700;
     font-size: 1.6rem;
-    margin-top: var(--sl-spacing-x-small);
-    padding-top: var(--sl-spacing-x-small);
+    margin-top: var(--spacing-xs);
+    padding-top: var(--spacing-xs);
     border-top: 1px solid #000;
   }
 
   .invoice__actions {
     display: flex;
     justify-content: center;
-    margin-top: var(--sl-spacing-medium);
+    margin-top: var(--spacing-m);
   }
 
   /* Print Styles */

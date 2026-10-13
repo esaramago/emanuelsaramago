@@ -40,9 +40,9 @@ export const homePT = {
       },
     ]
   },
-  work: {
-    title: 'Trabalhos em destaque',
-    button: 'Mais trabalhos',
+  projects: {
+    title: 'Projetos em destaque',
+    button: 'Mais projetos',
   },
   pricing: {
     title: 'Planos à sua medida',
@@ -59,7 +59,7 @@ export const homePT = {
           'Painel de administração',
           'Ferramentas SEO',
         ],
-        price: 800,
+        price: 1000,
       },
       {
         title: 'Avançado',
@@ -73,7 +73,7 @@ export const homePT = {
           'Painel de administração',
           'Ferramentas SEO',
         ],
-        price: 1200,
+        price: 2000,
       },
       {
         title: 'Profissional',
@@ -142,9 +142,9 @@ export const homeEN = {
       },
     ]
   },
-  work: {
-    title: 'My featured work',
-    button: 'More of my work',
+  projects: {
+    title: 'My featured projects',
+    button: 'More projects',
   },
   pricing: {
     title: 'Plans tailored to you',
@@ -154,7 +154,7 @@ export const homeEN = {
         title: 'Base',
         description: 'Website with the essentials',
         features: [
-          'Custom template',
+          'Design template',
           'Unlimited pages',
           'Contact form',
           'Domain .com or .pt (1 year free)',
@@ -162,7 +162,7 @@ export const homeEN = {
           'Administration panel',
           'SEO tools',
         ],
-        price: 300,
+        price: 1000,
       },
       {
         title: 'Advanced',
@@ -176,7 +176,7 @@ export const homeEN = {
           'Administration panel',
           'SEO tools',
         ],
-        price: 1500,
+        price: 2000,
       },
       {
         title: 'Professional',

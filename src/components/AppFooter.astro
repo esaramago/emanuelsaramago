@@ -1,9 +1,8 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import Social from './Social.astro'
 
-const currentLang = getLangFromUrl(Astro.url)
-const t = useTranslations(currentLang)
+const t = useTranslations(Astro.currentLocale)
 ---
 
 <footer class="footer is-hidden-print">
@@ -17,8 +16,8 @@ const t = useTranslations(currentLang)
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--sl-spacing-medium);
-  padding: var(--sl-spacing-large);
+  gap: var(--spacing-m);
+  padding: var(--spacing-l);
   margin-block-start: 18rem;
   background-color: rgba(0, 0, 0, .7);
   font-size: 1.5rem;
@@ -30,7 +29,7 @@ const t = useTranslations(currentLang)
 @media (max-width: 767px) {
   .footer {
     flex-direction: column-reverse;
-    padding: var(--sl-spacing-large) var(--sl-spacing-medium);
+    padding: var(--spacing-l) var(--spacing-m);
   }
 }
 </style>

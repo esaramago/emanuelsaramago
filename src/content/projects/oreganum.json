@@ -1,0 +1,13 @@
+{
+  "title": "Oreganum",
+  "featured": true,
+  "date": "2024-04-01",
+  "image": "/media/projects/oreganum/image.webp",
+  "isImageScrollable": false,
+  "description": "Online store made with Wordpress and WooCommerce.",
+  "url": "https://oreganum.pt",
+  "role": [
+    "development",
+    "design"
+  ]
+}

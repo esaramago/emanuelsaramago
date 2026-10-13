@@ -1,49 +1,55 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
-const lang = getLangFromUrl(Astro.url)
-const t: any = useTranslations(lang)
+import { useTranslations } from '../i18n/utils'
+import { defaultLang } from '../i18n/ui'
+import getUrl from '@/utils/getUrl'
 
-const pathname = new URL(Astro.request.url).pathname
-const currentPath = pathname.slice(1) // remove the first "/"
+const lang = Astro.currentLocale ?? defaultLang
+const t = useTranslations(lang)
+
+const pathname = Astro.url.pathname
 
 const pages = [
-	{
-    name: t('navigation').home,
-    path: lang === 'en' ? lang : ''
-  },
-	{
-    name: t('navigation').work,
-    path: lang === 'en' ? lang + '/work' : 'trabalho'
+  {
+    name: t('navigation.home'),
+    href: getUrl('', lang),
+    external: false,
   },
   {
-    name: t('navigation').meeting,
-    path: lang === 'en' ? lang + '/meeting' : 'reuniao',
-    external: true,
+    name: t('navigation.projects'),
+    href: getUrl('projects', lang),
+    external: false,
   }
 ]
+
+function isActive(href: string) {
+  if (href === '/' || href === '/en') {
+    return pathname === href || pathname === `${href}/`
+  }
+  return pathname.startsWith(href)
+}
 ---
 
 <nav>
   <ul>
-		{
-			pages.map(page => (
-				<li class={currentPath === page.path ? 'active' : ''}>
-					<a href={`/${page.path}`} target={page.external ? '_blank' : '_self'}>{page.name}</a>
-				</li>
-			))
-		}
+    {
+      pages.map(page => (
+        <li class={isActive(page.href) ? 'active' : ''}>
+          <a href={page.href} target={page.external ? '_blank' : '_self'}>{page.name}</a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
 
 <style>
 ul {
   display: flex;
-  gap: var(--sl-spacing-large);
+  gap: var(--spacing-l);
   @media (max-width: 1000px) {
-    gap: var(--sl-spacing-small);
+    gap: var(--spacing-s);
   }
   @media (max-width: 700px) {
-    gap: var(--sl-spacing-medium);
+    gap: var(--spacing-m);
   }
 }
 a {

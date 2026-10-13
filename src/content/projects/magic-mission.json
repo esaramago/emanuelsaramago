@@ -1,0 +1,12 @@
+{
+  "title": "Magic Mission",
+  "featured": false,
+  "date": "2024-01-01",
+  "image": "/media/projects/magic-mission/image.jpg",
+  "isImageScrollable": false,
+  "description": "Site de tours premium em Lisboa. Feito com Wordpress e com integração com Bokun.",
+  "role": [
+    "development",
+    "design"
+  ]
+}

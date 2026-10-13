@@ -1,7 +1,7 @@
 .c-select {
-    border-radius: var(--sl-spacing-x-small);
-    background-color: var(--sl-color-neutral-0);
-    padding-inline: var(--sl-spacing-small);
+    border-radius: var(--spacing-xs);
+    background-color: var(--color-neutral-0);
+    padding-inline: var(--spacing-s);
     height: var(--form-height-m);
-    border: 2px solid var(--sl-color-neutral-500);
+    border: 2px solid var(--color-neutral-50);
 }

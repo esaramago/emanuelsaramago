@@ -1,0 +1,46 @@
+---
+import Layout from '@/layouts/layout.astro'
+import Card from '@/components/Card.astro'
+import { actions } from 'astro:actions'
+import type { Project } from '@/types'
+import ButtonEmail from '@/components/ButtonEmail.astro'
+import { useTranslations } from '../i18n/utils'
+
+const { data: projects = [] } = await Astro.callAction(actions.getProjects, {})
+const t = useTranslations(Astro.currentLocale)
+---
+
+<Layout>
+  <div class="l-container">
+    <div class="l-stack l-stack--small">
+      <h1 data-appearance="h2" class="u-text-center">{t('projects.title')}</h1>
+      <p class="u-text-center">{t('projects.description')}</p>
+    </div>
+    <div class="l-cards l-cards--wide">
+
+      {projects.map((project: Project) => (
+        <Card
+          role={project.role}
+          title={project.title}
+          imageSrc={project.image || undefined}
+          template="default"
+        >
+          <p set:html={project.description}></p>
+          {
+            project.url ? (
+            <div>
+              <a href={project.url} target="_blank">{project.url.replace('https://', '')}</a>
+            </div>
+            ) : ''
+          }
+        </Card>
+      ))}
+    </div>
+  </div>
+  <section class="l-container">
+    <h2>{ t('interested') }</h2>
+    <div>
+      <ButtonEmail />
+    </div>
+  </section>
+</Layout>

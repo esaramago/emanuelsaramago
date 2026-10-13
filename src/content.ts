@@ -1,4 +1,3 @@
-
 const content = {
   brands: [
     {
@@ -32,6 +31,14 @@ const content = {
     {
       name: 'Associação Ambientalista Zero',
       logo: 'zero',
+    },
+    {
+      name: 'Vesselindex',
+      logo: 'vesselindex',
+    },
+    {
+      name: 'Top Atlântico',
+      logo: 'topatlantico',
     }
   ],
 }

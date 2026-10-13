@@ -1,22 +1,19 @@
 ---
 import Social from '../components/Social.astro'
 import ButtonEmail from '../components/ButtonEmail.astro'
+import { useTranslations } from '../i18n/utils'
 
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
-
-const lang = getLangFromUrl(Astro.url)
-const t: any = useTranslations(lang)
-
+const t = useTranslations(Astro.currentLocale)
 ---
 
 <div class="hero">
   <div class="hero__container l-container">
     <span class="hero__1">Olá!</span>
-    <h2>
-      <span class="hero__2">{ t('home').hero.heading1 }</span>
-      <span class="hero__3">{ t('home').hero.heading2 }</span>
-    </h2>
-    <p>{ t('home').hero.text1 }<br>{ t('home').hero.text2 }</p>
+    <h1>
+      <span class="hero__2">{ t('home.hero.heading1') }</span>
+      <span class="hero__3">{ t('home.hero.heading2') }</span>
+    </h1>
+    <p>{ t('home.hero.text1') }<br>{ t('home.hero.text2') }</p>
     <div>
       <ButtonEmail variant="light" />
     </div>
@@ -34,9 +31,9 @@ const t: any = useTranslations(lang)
   min-height: 90vh;
   box-sizing: border-box;
   padding-block-start: 12rem;
-  padding-block-end: var(--sl-spacing-large);
+  padding-block-end: var(--spacing-l);
   text-align: center;
-  background-color: var(--sl-color-primary-500);
+  background-color: var(--color-primary-50);
   color: #FFF;
   fill: #FFF;
 }
@@ -56,7 +53,7 @@ const t: any = useTranslations(lang)
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--sl-spacing-large);
+  gap: var(--spacing-l);
 }
 .hero__1 {
   font-weight: 500;
@@ -79,7 +76,7 @@ p {
 }
 @media (max-width: 767px) {
   .hero__container {
-    gap: var(--sl-spacing-medium);
+    gap: var(--spacing-m);
   }
 }
 @media (max-width: 700px) {

@@ -1,13 +1,16 @@
 import { globalPT, globalEN } from './content/global'
 import { homePT, homeEN } from './content/home'
-import { workPT, workEN } from './content/work'
+import { projectsPT, projectsEN } from './content/projects'
 
 export const languages = {
   pt: 'Português',
   en: 'English',
-}
+} as const
 
-export const defaultLang = 'pt'
+export const defaultLang = 'pt' as const
+
+export type SupportedLanguage = keyof typeof languages
+export type TranslationSchema = (typeof ui)[typeof defaultLang]
 
 export const ui = {
   pt: {
@@ -15,8 +18,8 @@ export const ui = {
     home: {
       ...homePT,
     },
-    work: {
-      ...workPT,
+    projects: {
+      ...projectsPT,
     },
   },
   en: {
@@ -24,8 +27,8 @@ export const ui = {
     home: {
       ...homeEN,
     },
-    work: {
-      ...workEN,
+    projects: {
+      ...projectsEN,
     },
   },
 } as const

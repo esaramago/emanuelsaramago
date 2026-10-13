@@ -7,7 +7,7 @@
   flex-direction: column;
   padding-inline: 8rem;
   margin-inline: auto;
-  gap: var(--sl-spacing-large);
+  gap: var(--spacing-l);
 }
 .l-container--wide {
   max-width: 240rem;

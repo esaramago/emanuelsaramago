@@ -1,8 +1,7 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
+const t = useTranslations(Astro.currentLocale)
 
 interface PriceProps {
   value: number
@@ -28,7 +27,7 @@ const {
 
 <style scoped>
   .value {
-    font-size: var(--sl-font-size-x-large);
+    font-size: var(--font-size-xl);
     font-weight: 600;
     white-space: nowrap;
     line-height: 1;

@@ -1,15 +1,11 @@
 export const pageTranslation = {
-  trabalho: 'work',
-  work: 'trabalho',
+  projetos: 'projects',
+  projects: 'projetos',
 }
 export const pagePath = {
-  work: {
-    pt: 'trabalho',
-    en: 'work',
-  },
-  meeting: {
-    pt: 'reunião',
-    en: 'meeting',
+  projects: {
+    pt: 'projetos',
+    en: 'projects',
   },
   admin: {
     pt: 'admin',

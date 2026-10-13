@@ -1,0 +1,13 @@
+{
+  "title": "Associação Vale Grande",
+  "featured": false,
+  "date": "2024-03-01",
+  "image": "/media/projects/associacao-vale-grande/image.jpg",
+  "isImageScrollable": false,
+  "description": "Atualização do site de uma associação cultural, feito com Wordpress.<br>Fiz algumas melhorias de design e à edição de conteúdos",
+  "url": "https://associacaovalegrande.pt/",
+  "role": [
+    "design",
+    "development"
+  ]
+}

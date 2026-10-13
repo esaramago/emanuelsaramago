@@ -1,0 +1,12 @@
+{
+  "title": "DanteStamp",
+  "featured": false,
+  "date": "2023-09-01",
+  "isImageScrollable": false,
+  "description": "Uma loja online que vende arte feita com selos usados.<br>Feito com Vue.js.",
+  "url": "https://dantestamp.com",
+  "role": [
+    "design",
+    "development"
+  ]
+}
