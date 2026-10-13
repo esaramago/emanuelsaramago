@@ -183,7 +183,7 @@
    */
 
   /* Fonts */
-  --sl-font-sans: 'Montserrat', Helvetica, Arial, sans-serif;
+  --sl-font-sans: var(--font-montserrat), 'Montserrat', Helvetica, Arial, sans-serif;
   --sl-font-serif: Georgia, 'Times New Roman', serif;
   --sl-font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
 

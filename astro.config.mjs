@@ -5,7 +5,7 @@ const {
   PUBLIC_SANITY_PROJECT_ID,
   PUBLIC_SANITY_DATASET,
 } = loadEnv(import.meta.env.MODE, process.cwd(), '')
-import { defineConfig } from 'astro/config'
+import { defineConfig, fontProviders } from 'astro/config'
 
 // Different environments use different variables
 const projectId = PUBLIC_SANITY_PROJECT_ID
@@ -28,5 +28,13 @@ export default defineConfig({
     }),
     react() // Required for Sanity Studio
   ],
-  adapter: vercel()
+  adapter: vercel(),
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Montserrat',
+      cssVariable: '--font-montserrat',
+      weights: [400, 500, 700],
+    }
+  ]
 })
