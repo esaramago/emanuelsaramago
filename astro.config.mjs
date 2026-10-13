@@ -33,7 +33,26 @@ export default defineConfig({
       useCdn: false,
       apiVersion: '2025-11-17' // Set to date of setup to use the latest API version
     }),
-    react() // Required for Sanity Studio
+    react(), // Required for Sanity Studio
+    {
+      name: 'localized-routes',
+      hooks: {
+        'astro:config:setup': ({ injectRoute }) => {
+          injectRoute({
+            pattern: '/en',
+            entrypoint: './src/pages/index.astro',
+          })
+          injectRoute({
+            pattern: '/en/work',
+            entrypoint: './src/pages/trabalho.astro',
+          })
+          injectRoute({
+            pattern: '/en/meeting',
+            entrypoint: './src/pages/reuniao.astro',
+          })
+        },
+      },
+    },
   ],
   adapter: vercel(),
   fonts: [
