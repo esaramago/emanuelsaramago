@@ -6,6 +6,8 @@ export interface Project {
   date?: string
   role?: string[]
   image?: string | null
+  imageWidth?: number
+  imageHeight?: number
   isImageScrollable?: boolean
   url?: string | null
 }

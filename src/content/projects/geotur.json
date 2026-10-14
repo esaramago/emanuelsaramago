@@ -2,7 +2,7 @@
   "title": "Geotur",
   "featured": false,
   "date": "2023-06-01",
-  "image": "/media/projects/geotur.jpg",
+  "image": "/media/projects/geotur.webp",
   "isImageScrollable": false,
   "description": "Site de uma agência de viagens espanhola feita com Nuxt.js.",
   "url": "https://geotur.es",

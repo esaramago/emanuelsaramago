@@ -2,7 +2,7 @@
   "title": "Fito",
   "featured": false,
   "date": "2023-03-01",
-  "image": "/media/projects/fito.jpg",
+  "image": "/media/projects/fito.webp",
   "isImageScrollable": false,
   "description": "Site com uma lista de localizações de árvores do Sistema de Informação de Fitossanidade Florestal.<br>Feito com Vue.js.",
   "url": "https://fitossanidadeflorestal.web.app/",

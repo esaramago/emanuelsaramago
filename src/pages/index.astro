@@ -53,6 +53,9 @@ const featuredProjects = projects.filter((project: Project) => project.featured)
           role={project.role}
           title={project.title}
           imageSrc={project.image || undefined}
+          imageWidth={project.imageWidth}
+          imageHeight={project.imageHeight}
+          isImageScrollable={project.isImageScrollable}
           template="default"
         >
           <p set:html={project.description}></p>

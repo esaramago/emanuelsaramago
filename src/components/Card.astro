@@ -7,6 +7,8 @@ interface CardProps {
 	subTitle?: string
 	role?: string[]
 	imageSrc?: string
+	imageWidth?: number
+	imageHeight?: number
 	isImageScrollable?: boolean
 	template?: TemplateType
 	gap?: Spacing
@@ -19,6 +21,8 @@ const {
 	subTitle,
 	role,
 	imageSrc,
+	imageWidth,
+	imageHeight,
 	isImageScrollable,
 	template = 'custom',
 	gap = 'l',
@@ -37,7 +41,14 @@ const {
 				{
 					imageSrc &&
 					<div class:list={[ 'card__img', {'is-scrollable': isImageScrollable} ]}>
-						<img src={imageSrc} alt={title} loading="lazy">
+						<img
+							src={imageSrc}
+							alt={title}
+							width={imageWidth}
+							height={imageHeight}
+							loading="lazy"
+							decoding="async"
+						/>
 					</div>
 				}
 				<div class="card__content">
