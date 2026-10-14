@@ -1,0 +1,13 @@
+{
+  "title": "Circulab",
+  "featured": true,
+  "date": "2026-09-19",
+  "image": "/media/projects/circulab/image.webp",
+  "isImageScrollable": true,
+  "description": "Plataforma participativa dedicada à identificação e valorização de recursos urbanos subutilizados ou desperdiçados.\nFeito com Astro e Supabase.",
+  "url": "https://circulab.pt/",
+  "role": [
+    "development",
+    "design"
+  ]
+}
