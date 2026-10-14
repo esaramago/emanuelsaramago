@@ -41,7 +41,16 @@ technologyTypes.forEach((type: TechnologyType) => {
               type.technologies.map((tech: any) => (
                 <li>
                   <a href={tech.website} target="_blank">
-                    <img class="technology__logo" src={tech.logo} alt={tech.name} title={tech.name} loading="lazy" />
+                    <img
+                      class="technology__logo"
+                      src={tech.logo}
+                      alt={tech.name}
+                      title={tech.name}
+                      width="50"
+                      height="50"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </a>
                 </li>
               ))
