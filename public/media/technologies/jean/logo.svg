@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="196" height="196" viewBox="0 0 196 196">
+  <defs>
+    <clipPath id="clip-path-1">
+      <path d="M0 0 L196 0 L196 196 L0 196 Z"/>
+    </clipPath>
+  </defs>
+  <title>jean.svg</title>
+  <g id="shape-466d199f-b8a1-8028-8008-ca1d92c7412e">
+    <g clip-path="url(#clip-path-1)">
+      <g id="shape-466d199f-b8a1-8028-8008-ca1da0e886d8">
+        <g id="shape-466d199f-b8a1-8028-8008-ca1da0e979f2">
+          <g id="fills-466d199f-b8a1-8028-8008-ca1da0e979f2">
+            <path d="M132.777 0.067 L167.365 0.134 L167.076 150.016 L132.488 149.949 Z" fill="#fcd452"/>
+          </g>
+        </g>
+        <g id="shape-466d199f-b8a1-8028-8008-ca1da0e979f3">
+          <g id="fills-466d199f-b8a1-8028-8008-ca1da0e979f3">
+            <path d="M17.284 103.609 L51.871 103.676 L51.782 149.793 L17.194 149.727 Z" fill="#fcd452"/>
+          </g>
+        </g>
+        <g id="shape-466d199f-b8a1-8028-8008-ca1da0e979f4">
+          <g id="fills-466d199f-b8a1-8028-8008-ca1da0e979f4">
+            <path d="M51.782 149.793 L132.488 149.949 L132.421 184.537 L51.715 184.381 Z" fill="#fcd452"/>
+          </g>
+        </g>
+        <g id="shape-466d199f-b8a1-8028-8008-ca1da0e979f5">
+          <g id="fills-466d199f-b8a1-8028-8008-ca1da0e979f5">
+            <path d="M167.342 11.663 L178.872 11.685 L178.583 161.567 L143.996 161.501 L144.018 149.971 L167.076 150.016 Z" fill="#786630"/>
+          </g>
+        </g>
+        <g id="shape-466d199f-b8a1-8028-8008-ca1da0e979f6">
+          <g id="fills-466d199f-b8a1-8028-8008-ca1da0e979f6">
+            <path d="M51.849 115.205 L63.378 115.227 L63.312 149.816 L51.782 149.793 Z" fill="#786630"/>
+          </g>
+        </g>
+        <g id="shape-466d199f-b8a1-8028-8008-ca1da0e979f7">
+          <g id="fills-466d199f-b8a1-8028-8008-ca1da0e979f7">
+            <path d="M28.724 149.749 L51.782 149.793 L51.737 172.852 L28.68 172.808 Z" fill="#786630"/>
+          </g>
+        </g>
+        <g id="shape-466d199f-b8a1-8028-8008-ca1da0e9b619">
+          <g id="fills-466d199f-b8a1-8028-8008-ca1da0e9b619">
+            <path d="M132.466 161.478 L143.996 161.501 L143.929 196.089 L51.693 195.911 L51.715 184.381 L132.421 184.537 Z" fill="#786630"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
